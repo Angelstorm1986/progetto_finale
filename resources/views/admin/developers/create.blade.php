@@ -1,4 +1,4 @@
-@extends('parts.body')
+@extends('layouts.app')
 @section('content')
 
 <form action="{{ route('admin.developers.store') }}" method="POST" class="boot" enctype="multipart/form-data">
@@ -30,10 +30,4 @@
     </div>
     <button class="btn btn-warning"><strong>Save</strong></button>
 </form>
-<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-  bkLib.onDomLoaded(nicEditors.allTextAreas);
-</script>
-
 @endsection
