@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/developers', 'Api\DeveloperController@index');
+
+Route::post('/messages', 'Api\MessageController@store');
+Route::post('/reviews', 'Api\ReviewController@store');

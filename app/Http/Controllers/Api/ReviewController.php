@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Review;
 
 class ReviewController extends Controller
 {
@@ -35,7 +36,18 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newReview = new Review();
+        $newReview->name = $data['name'];
+        $newReview->rate = $data['rate'];
+        $newReview->content = $data['content'];
+        $newReview->developer_id = $data['developer_id'];
+
+        $newReview->save();
+
+        //Mail::to('matteo.nichelini@gmail.com')->send(new SendNewMail($newComment->post));
+
+        return response()->json($newReview);
     }
 
     /**
