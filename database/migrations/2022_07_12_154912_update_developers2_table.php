@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateDevelopersTable extends Migration
+class UpdateDevelopers2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class UpdateDevelopersTable extends Migration
     public function up()
     {
         Schema::table('developers', function (Blueprint $table) {
-            $table->string('slug', 130);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -33,6 +34,7 @@ class UpdateDevelopersTable extends Migration
             $table->string('phone_number', 20)->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
+            $table->string('slug', 130);
         });
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,8 @@ class DeveloperController extends Controller
      */
     public function create()
     {
-        return view('admin.developers.create');
+        $users = User::all();
+        return view('admin.developers.create', compact('users'));
     }
 
     /**
@@ -41,17 +43,21 @@ class DeveloperController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $user = Auth::user()->name;
         $newDeveloper = new Developer();
         $newDeveloper->skills = $data['skills'];
         $newDeveloper->curriculum = $data['curriculum'];
         $newDeveloper->phone_number = $data['phone_number'];
         $newDeveloper->description = $data['description'];
-        $newDeveloper->name = $data['name'];
-        $newDeveloper->slug = $this->getSlug($newDeveloper->name);
+        $newDeveloper->slug = $this->getSlug($user);
+        $newDeveloper->user_id = Auth::id();
         if( isset($data['photo']) ) {
             $path_photo = Storage::put("uploads", $data['photo']);
             $newDeveloper->photo = $path_photo;
         }
+        $newDeveloper->save();
+
+        return Redirect()->route('admin.developers.show', $newDeveloper->id);
     }
 
     /**

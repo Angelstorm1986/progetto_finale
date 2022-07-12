@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.app');
+
+@section('title', $developer->user->name);
 
 @section('content')
 
 <div>
     <p>{{$developer->curriculum}}</p>
 </div>
-<form action="{{ route('admin.comments.store') }}" method="POST" class="boot" enctype="multipart/form-data">
+{{-- <form action="{{ route('api.message.store') }}" method="POST" class="boot" enctype="multipart/form-data">
     <h3>inserisci un commento</h3>
     @csrf
     <div class="mb-3 row justify-content-center">
@@ -24,6 +26,6 @@
         </div>
     </div>
     <button class="btn btn-warning"><strong>Save</strong></button>
-</form>
+</form> --}}
 
 @endsection

@@ -15,8 +15,14 @@
             </textarea>
         </div>
         <div class="col-sm-8">
-            <label for="image" class="col-sm-4 col-form-label">Image: </label>
-            <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+            <div class="form-group">
+                <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
+                <label for="image">Aggiungi immagine</label>
+                <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
+                @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
         <label for="phone_number" class="col-sm-8 col-form-label">phone number</label>
         <div class="col-sm-8">
