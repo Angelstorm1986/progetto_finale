@@ -1,7 +1,7 @@
 @extends('parts.body')
 @section('content')
 
-<form action="{{ route('admin.posts.store') }}" method="POST" class="boot" enctype="multipart/form-data">
+<form action="{{ route('admin.developers.store') }}" method="POST" class="boot" enctype="multipart/form-data">
     @csrf
     <div class="mb-3 row justify-content-center">
         <label for="skills" class="col-sm-8 col-form-label">skills</label>

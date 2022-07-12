@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="continer">
+<div class="container">
     <div class="row">
         <?php foreach($developer as $developer){  ?>
         <div class="col-12">

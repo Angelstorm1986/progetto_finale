@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Developer;
 use App\User;
 
@@ -29,7 +29,7 @@ class DeveloperController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.developers.create');
     }
 
     /**
@@ -40,7 +40,18 @@ class DeveloperController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newDeveloper = new Developer();
+        $newDeveloper->skills = $data['skills'];
+        $newDeveloper->curriculum = $data['curriculum'];
+        $newDeveloper->phone_number = $data['phone_number'];
+        $newDeveloper->description = $data['description'];
+        $newDeveloper->name = $data['name'];
+        $newDeveloper->slug = $this->getSlug($newDeveloper->name);
+        if( isset($data['photo']) ) {
+            $path_photo = Storage::put("uploads", $data['photo']);
+            $newDeveloper->photo = $path_photo;
+        }
     }
 
     /**
@@ -86,5 +97,16 @@ class DeveloperController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function getSlug($title)
+    {
+        $slug = Str::of($title)->slug("-");
+        $count = 1;
+        while( Developer::where("slug", $slug)->first() ) {
+            $slug = Str::of($title)->slug("-") . "-{$count}";
+            $count++;
+        }
+
+        return $slug;
     }
 }
