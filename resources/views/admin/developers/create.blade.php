@@ -5,8 +5,10 @@
     @csrf
     <div class="mb-3 row justify-content-center">
         <label for="skills" class="col-sm-8 col-form-label">skills</label>
+        
         <div class="col-sm-8">
             <textarea type="text" class="form-control @error('skills') is-invalid @enderror" id="skills" placeholder="Inserisci le tue skill" name="skills">
+                {{old('skills')}}
             </textarea>
         </div>
 
@@ -14,7 +16,7 @@
             <div class="form-group">
                 <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
                 <label for="curriculum">Aggiungi curriculum .png</label>
-                <input type="file" id="curriculum" name="curriculum" onchange="boolpress.previewImage();">
+                <input type="file" id="curriculum" name="curriculum" onchange="boolpress.previewCurriculum();">
                 @error('curriculum')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -24,9 +26,9 @@
         <div class="col-sm-8">
             <div class="form-group">
                 <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
-                <label for="image">Aggiungi immagine</label>
-                <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
-                @error('image')
+                <label for="photo">Aggiungi immagine</label>
+                <input type="file" id="photo" name="photo" onchange="boolpress.previewImage();">
+                @error('photo')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -40,6 +42,7 @@
         <div class="col-sm-8">
             <label for="description" class="col-sm-4 col-form-label">description</label>
             <textarea name="description" type="text" cols="50" rows="10" class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Inserisci la tua esperienza">
+                {{old('description')}}
             </textarea>
         </div>
     </div>

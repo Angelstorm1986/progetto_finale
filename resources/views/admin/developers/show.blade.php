@@ -8,6 +8,7 @@
 
     <div>
         <p>{{$developer->curriculum}}</p>
+
     </div>
 
     @endsection
