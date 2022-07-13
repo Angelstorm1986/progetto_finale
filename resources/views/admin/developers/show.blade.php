@@ -1,12 +1,17 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
-@section('title', $developer->user->name);
 
-@section('content')
+    @section('title', $user->name . '  ' . $user->surname)
+    
 
-<div>
-    <p>{{$developer->curriculum}}</p>
-</div>
+    @section('content')
+
+    <div>
+        <p>{{$developer->curriculum}}</p>
+    </div>
+
+    @endsection
+
 {{-- <form action="{{ route('api.message.store') }}" method="POST" class="boot" enctype="multipart/form-data">
     <h3>inserisci un commento</h3>
     @csrf
@@ -28,4 +33,3 @@
     <button class="btn btn-warning"><strong>Save</strong></button>
 </form> --}}
 
-@endsection

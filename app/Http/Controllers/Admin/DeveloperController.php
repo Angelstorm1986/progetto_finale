@@ -68,7 +68,9 @@ class DeveloperController extends Controller
      */
     public function show(Developer $developer)
     {
-        return view('admin.developers.show', compact('developer'));
+        $user = Auth::user();
+        
+        return view('admin.developers.show', compact('developer', 'user'));
     }
 
     /**
