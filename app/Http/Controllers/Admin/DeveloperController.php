@@ -44,17 +44,26 @@ class DeveloperController extends Controller
     {
         $data = $request->all();
         $user = Auth::user()->name;
+
         $newDeveloper = new Developer();
+
         $newDeveloper->skills = $data['skills'];
-        $newDeveloper->curriculum = $data['curriculum'];
         $newDeveloper->phone_number = $data['phone_number'];
         $newDeveloper->description = $data['description'];
         $newDeveloper->slug = $this->getSlug($user);
         $newDeveloper->user_id = Auth::id();
+
         if( isset($data['photo']) ) {
             $path_photo = Storage::put("uploads", $data['photo']);
             $newDeveloper->photo = $path_photo;
         }
+
+        if( isset($data['curriculum']) ) {
+            $path_curriculum = Storage::put("uploads", $data['curriculum']);
+            $newDeveloper->curriculum = $path_curriculum;
+        }
+
+
         $newDeveloper->save();
 
         return Redirect()->route('admin.developers.show', $newDeveloper->id);
@@ -81,7 +90,8 @@ class DeveloperController extends Controller
      */
     public function edit($id)
     {
-        //
+        $developer = Developer::findOrFail($id);
+        return view('admin.developers.edit',compact('developer'));
     }
 
     /**
@@ -93,7 +103,33 @@ class DeveloperController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate($this->validationRule);
+        $data = $request->all();
+
+       
+        $developer->skills = $data['skills'];
+        $developer->phone_number = $data['phone_number'];
+        $developer->description = $data['description'];
+
+        if( isset($data['curriculum']) ) {
+            // cancello l'immagine
+            Storage::delete($developer->curriculum);
+            // salvo la nuova immagine
+            $path_curriculum = Storage::put("uploads", $data['curriculum']);
+            $developer->curriculum = $path_curriculum;
+        }
+
+        if( isset($data['image']) ) {
+            // cancello l'immagine
+            Storage::delete($post->image);
+            // salvo la nuova immagine
+            $path_image = Storage::put("uploads", $data['image']);
+            $post->image = $path_image;
+        }
+
+        $developer->update();
+
+        return redirect()->route('admin.developers.show', $developer->id);
     }
 
     /**
@@ -104,8 +140,13 @@ class DeveloperController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $developer->delete();
+        return redirect()->route('admin.developers.index')->with("message","Developer with id: {$developer->id} successfully deleted !");
     }
+
+
+
+    
     private function getSlug($title)
     {
         $slug = Str::of($title)->slug("-");

@@ -9,11 +9,18 @@
             <textarea type="text" class="form-control @error('skills') is-invalid @enderror" id="skills" placeholder="Inserisci le tue skill" name="skills">
             </textarea>
         </div>
+
         <div class="col-sm-8">
-            <label for="curriculum" class="col-sm-4 col-form-label">curriculum</label>
-            <textarea name="curriculum" type="text" cols="50" rows="10" class="form-control @error('curriculum') is-invalid @enderror" id="curriculum" placeholder="Inserisci la tua esperienza">
-            </textarea>
+            <div class="form-group">
+                <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
+                <label for="curriculum">Aggiungi curriculum .png</label>
+                <input type="file" id="curriculum" name="curriculum" onchange="boolpress.previewImage();">
+                @error('curriculum')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
+
         <div class="col-sm-8">
             <div class="form-group">
                 <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
@@ -24,6 +31,8 @@
                 @enderror
             </div>
         </div>
+
+
         <label for="phone_number" class="col-sm-8 col-form-label">phone number</label>
         <div class="col-sm-8">
             <input type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" placeholder="Inserisci un titolo" name="phone_number">
