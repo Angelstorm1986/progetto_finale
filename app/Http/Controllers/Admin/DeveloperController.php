@@ -19,8 +19,9 @@ class DeveloperController extends Controller
      */
     public function index()
     {
-        $developer = Developer::all();
-        return view('admin.developers.index',compact('developer'));
+        $users = User::all();
+        $developers = Developer::all();
+        return view('admin.developers.index',compact('developers', 'users'));
     }
 
     /**
@@ -88,9 +89,8 @@ class DeveloperController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Developer $developer)
     {
-        $developer = Developer::findOrFail($id);
         return view('admin.developers.edit',compact('developer'));
     }
 
@@ -119,12 +119,12 @@ class DeveloperController extends Controller
             $developer->curriculum = $path_curriculum;
         }
 
-        if( isset($data['image']) ) {
+        if( isset($data['photo']) ) {
             // cancello l'immagine
-            Storage::delete($post->image);
+            Storage::delete($developer->photo);
             // salvo la nuova immagine
-            $path_image = Storage::put("uploads", $data['image']);
-            $post->image = $path_image;
+            $path_image = Storage::put("uploads", $data['photo']);
+            $developer->photo = $path_image;
         }
 
         $developer->update();
@@ -146,7 +146,7 @@ class DeveloperController extends Controller
 
 
 
-    
+
     private function getSlug($title)
     {
         $slug = Str::of($title)->slug("-");
