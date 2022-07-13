@@ -19,8 +19,9 @@ class DeveloperController extends Controller
      */
     public function index()
     {
-        $developer = Developer::all();
-        return view('admin.developers.index',compact('developer'));
+        $users = User::all();
+        $developers = Developer::all();
+        return view('admin.developers.index',compact('developers', 'users'));
     }
 
     /**
