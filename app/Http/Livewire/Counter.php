@@ -28,7 +28,7 @@ class Counter extends Component
             'date_of_birth' => 'required',
             'address' => 'required',
             'password' => 'required|min:8|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
-            'password_confirmation' => 'required|min:8|same:pass|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'
+            'password_confirmation' => 'required|min:8|same:password|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'
         ]);
     }
  
@@ -44,8 +44,6 @@ class Counter extends Component
             'password_confirmation' => 'required|min:8|same:password|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'
         ]);
         User::create($validatedData);
-        //$validatedData = new User;
-        //dd($validatedData);
-        //$validatedData->
+        return redirect()->to('/admin/developers');
     }
 }
