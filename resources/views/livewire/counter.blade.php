@@ -13,11 +13,11 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus wire:model.lazy="name">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" wire:model="name">
     
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ "tua Mamma" }}</strong>
+                                            <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -27,7 +27,7 @@
                                 <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" wire:model="surname">
     
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" wire:model="address">
     
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -55,7 +55,7 @@
                                 <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus>
+                                    <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" wire:model="date_of_birth">
     
                                     @error('date_of_birth')
                                         <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" wire:model="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" wire:model="email">
     
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" wire:model="password">
     
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -94,10 +94,10 @@
                             </div>
     
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password_confirmation" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" wire:model="password_confirmation">
                                 </div>
                             </div>
     
@@ -107,7 +107,7 @@
                                         {{ __('Register') }}
                                     </button>
                                 </div>
-                            </div>
+                            </div> 
                         </form>
                     </div>
                 </div>
@@ -115,4 +115,3 @@
         </div>
     </div>
 </div>
-

@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @livewireStyles
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,12 +12,11 @@
     </title>
 
     <!-- Scripts -->
-    <script src="/livewire/livewire.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
     </script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -85,29 +83,6 @@
             @yield('content')
         </main>
     </div>
-<script>
-       jQuery(document).ready(function(){
-          jQuery('#ajaxSubmit').click(function(e){
-             e.preventDefault();
-             $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-            });
-             jQuery.ajax({
-                url: "{{ url('/register') }}",
-                method: 'post',
-                data: {
-                   name: jQuery('#name').val(),
-                   email: jQuery('#email').val(),
-                   surname: jQuery('#surname').val()
-                },
-                success: function(result){
-                   console.log(result);
-                }});
-             });
-          });
-        </script>
-    @livewireStyles
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
