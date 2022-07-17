@@ -68,7 +68,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::create([
+        $developers = Developer::all();
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -77,7 +78,6 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'slug' => $data['name']
         ]);
-        $developers = Developer::all();
-        return redirect('admin.developers.index', compact('developers'));
+        // return redirect('admin.developers.index', compact('developers'));
     }
 }

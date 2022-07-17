@@ -16,7 +16,7 @@ const mix = require('laravel-mix');
      processCssUrls: false
   });
 
-  mix.js('resources/js/app.js', 'public/js').vue()
+  mix.js('resources/js/front.js', 'public/js')
  .sass('resources/sass/app.scss', 'public/css').options({
      processCssUrls: false
   });

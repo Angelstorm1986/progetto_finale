@@ -17,6 +17,7 @@
     crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -33,6 +34,5 @@
         </main>
         @include('partials.footer')
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

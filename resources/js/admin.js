@@ -6,6 +6,8 @@
 
  require('./bootstrap');
 
+ window.Vue = require('vue');
+
 
  window.boolpress = {
      currentForm: null,
@@ -41,3 +43,27 @@
      }
  
  }
+
+ const app = new Vue({
+    el: '#app',
+    data:{
+        nome : 'Andrea',
+        surname : '',
+        address: '',
+        date_of_birth: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+    },
+    updated(){
+        if(this.nome.length > 3 && this.nome != ''){
+            console.log(this.nome)
+        } else{
+
+        }
+    },
+    created(){
+        console.log('tua mamma')
+    }
+ })
+

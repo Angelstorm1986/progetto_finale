@@ -36,6 +36,8 @@ class User extends Authenticatable
     
     protected $guarded = [];
 
+    protected $fillable = [];
+
     public function Developer(){
         return $this->hasOne('App\Developer');
     }
