@@ -16,7 +16,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" >
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" v-model="nome">
     
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                                 <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" >
+                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" v-model="surname">
     
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" >
+                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" v-model="address">
     
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                                 <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth">
+                                    <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" v-model="date_of_birth">
     
                                     @error('date_of_birth')
                                         <span class="invalid-feedback" role="alert">
@@ -72,7 +72,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" >
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" v-model="email">
     
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" v-model="password">
     
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
                                 <label for="password_confirmation" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation">
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" v-model="password_confirmation">
                                 </div>
                             </div>
     
