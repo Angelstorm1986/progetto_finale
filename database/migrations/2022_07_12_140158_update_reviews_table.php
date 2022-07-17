@@ -14,7 +14,6 @@ class UpdateReviewsTable extends Migration
     public function up()
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->string('slug', 30)->unique();
         });
     }
 

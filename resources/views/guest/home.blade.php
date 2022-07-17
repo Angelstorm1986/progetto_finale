@@ -81,7 +81,7 @@
 
 
             <div id="root">
-                
+                <h1><a href="{{ route('admin.developers.index') }}">link</a></h1>
             </div>
         </div>
     </body>

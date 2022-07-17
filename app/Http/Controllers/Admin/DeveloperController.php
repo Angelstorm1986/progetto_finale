@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Developer;
 use App\User;
+use App\Comment;
 
 class DeveloperController extends Controller
 {
@@ -157,5 +158,21 @@ class DeveloperController extends Controller
         }
 
         return $slug;
+    }
+
+    public function storeMessage(Request $request)
+    {
+        $data = $request->all();
+        $newMessage = new Message();
+        $newMessage->name = $data['name'];
+        $newMessage->content = $data['content'];
+        $newMessage->mail = $data['mail'];
+        $newMessage->developer_id = $data['developer_id'];
+
+        $newMessage->save();
+
+        //Mail::to('matteo.nichelini@gmail.com')->send(new SendNewMail($newComment->post));
+
+        return response()->json($newMessage);
     }
 }

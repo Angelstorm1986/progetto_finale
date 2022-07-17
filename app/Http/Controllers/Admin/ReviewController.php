@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Message;
+use App\Review;
 
-class MessageController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,17 +37,15 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $newMessage = new Message();
-        $newMessage->name = $data['name'];
-        $newMessage->content = $data['content'];
-        $newMessage->mail = $data['mail'];
-        $newMessage->developer_id = $data['developer_id'];
+        $newReview = new Review();
+        $newReview->name = $data['name'];
+        $newReview->rate = $data['rate'];
+        $newReview->content = $data['content'];
+        $newReview->developer_id = $data['developer_id'];
 
-        $newMessage->save();
+        return $newReview->save();
 
         //Mail::to('matteo.nichelini@gmail.com')->send(new SendNewMail($newComment->post));
-
-        return response()->json($newMessage);
     }
 
     /**

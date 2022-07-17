@@ -11,17 +11,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    {{-- @auth --}}
+                    @auth
                         <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}" href="{{ route('admin.developers.index') }}" >Developers</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.messages.index' ? 'active' : ''}}" href="{{ route('admin.messages.index') }}" >Messages</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.reviews.index' ? 'active' : ''}}" href="{{ route('admin.reviews.index') }}" >Reviews</a>
                         </li> --}}
-                    {{-- @endauth --}}
+                    @endauth
                 </ul>
 
                 <!-- Right Side Of Navbar -->
