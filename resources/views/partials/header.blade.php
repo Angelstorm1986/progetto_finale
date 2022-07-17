@@ -1,8 +1,8 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                FP-Developers
+                BDevelopers
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,9 @@
                 <ul class="navbar-nav mr-auto">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}" href="{{ route('admin.developers.index') }}" >Developers</a>
+                            <a class="nav-link" href="{{ route('admin.developers.index') }}" >
+                                <div class="choice-button {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}">Developers</div>
+                            </a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.messages.index' ? 'active' : ''}}" href="{{ route('admin.messages.index') }}" >Messages</a>

@@ -12,12 +12,12 @@ const mix = require('laravel-mix');
  */
 
  mix.js('resources/js/admin.js', 'public/js')
- .sass('resources/sass/admin.scss', 'public/css').options({
+ .sass('resources/sass/app.scss', 'public/css').options({
      processCssUrls: false
   });
 
   mix.js('resources/js/front.js', 'public/js')
- .sass('resources/sass/app.scss', 'public/css').options({
+ .sass('resources/sass/front.scss', 'public/css').options({
      processCssUrls: false
   });
 
