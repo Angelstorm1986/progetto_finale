@@ -47,19 +47,29 @@
  const app = new Vue({
     el: '#app',
     data:{
-        nome : 'Andrea',
-        surname : '',
-        address: '',
-        date_of_birth: '',
+        nome : '',
         email: '',
-        password: '',
-        password_confirmation: '',
+        mail: '',
+        content: '',
+        checkMail: false,
+        checkName: false,
     },
     updated(){
-        if(this.nome.length > 3 && this.nome != ''){
+        if(this.nome == ''){
+            this.checkName = false;
+            console.log(this.checkName)
             console.log(this.nome)
+        }else if(!this.nome.includes(' ') || this.nome.substr(-1) == ' ' || this.nome.substr(0, 1) == ' '){
+            this.checkName = true;
+            console.log(this.checkName)
         } else{
-
+            this.checkName = false;
+        }
+        if(this.mail.includes('@', '.') == false && this.mail !== ''){
+            this.checkMail = true
+            console.log(this.checkMail)
+        } else{
+            this.checkMail = false
         }
     },
     created(){
