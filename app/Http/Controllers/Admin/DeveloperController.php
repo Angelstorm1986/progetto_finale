@@ -11,6 +11,7 @@ use App\Developer;
 use App\User;
 use App\Message;
 
+
 class DeveloperController extends Controller
 {
     /**
@@ -79,11 +80,19 @@ class DeveloperController extends Controller
      */
     public function show(Developer $developer)
     {
-        $user = Auth::user();
+        $user = User::findOrFail($developer->user_id);
+
+        
         
         return view('admin.developers.show', compact('developer', 'user'));
     }
 
+    public function dashboard(Developer $developer)
+    {
+        $user = Auth::user();
+        
+        return view('admin.developers.show', compact('developer', 'user'));
+    }
     /**
      * Show the form for editing the specified resource.
      *

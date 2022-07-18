@@ -1,3 +1,11 @@
+{{-- <?php
+    use App\Developer;
+
+    $developer = DB::table('developers')->where('user_id', Auth::user()->id);
+
+    
+    dump($developer->bindings['where']);
+?> --}}
 <header>
     <nav class="navbar navbar-expand-md shadow-sm">
         <div class="container">
@@ -45,7 +53,7 @@
                                 {{ Auth::user()->surname }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('admin.developers.show', $developer->id)}}">Dashboard</a>
+                                <a class="dropdown-item" href="{{route('admin.developers.show', DB::table('developers')->where('user_id', Auth::user()->id)->bindings['where'])}}">Dashboard</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">

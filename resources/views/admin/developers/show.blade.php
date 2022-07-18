@@ -11,6 +11,16 @@
             <p>{{ $developer->description }}</p>
             <p>{{ $developer->skills }}</p>
             <span>{{ $developer->phone_number }}</span>
+            <div class="d-flex align-items-start">
+                <button class="m-3 btn btn-warning">
+                    <a class="text-decoration-none text-light" href="{{route('admin.developers.edit', $developer->id)}}">Modify</a>
+                </button>
+                <form action="{{ route('admin.developers.destroy', $developer->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="boolpress.openModal(event, {{ $developer->id }})" class="m-3 btn btn-danger delete">Delete</button>
+                </form>
+            </div>
         </div>
         @if ($developer->user_id != $user->id)
             <div id="comment">
