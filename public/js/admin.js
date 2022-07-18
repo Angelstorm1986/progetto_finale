@@ -49276,17 +49276,30 @@ var app = new Vue({
   el: '#app',
   data: {
     nome: '',
-    surname: '',
-    address: '',
-    date_of_birth: '',
     email: '',
-    password: '',
-    password_confirmation: ''
+    mail: '',
+    content: '',
+    checkMail: false,
+    checkName: false
   },
   updated: function updated() {
-    if (this.nome.length > 3 && this.nome != '') {
+    if (this.nome == '') {
+      this.checkName = false;
+      console.log(this.checkName);
       console.log(this.nome);
-    } else {}
+    } else if (!this.nome.includes(' ') || this.nome.substr(-1) == ' ' || this.nome.substr(0, 1) == ' ') {
+      this.checkName = true;
+      console.log(this.checkName);
+    } else {
+      this.checkName = false;
+    }
+
+    if (this.mail.includes('@', '.') == false && this.mail !== '') {
+      this.checkMail = true;
+      console.log(this.checkMail);
+    } else {
+      this.checkMail = false;
+    }
   },
   created: function created() {
     console.log('tua mamma');
@@ -49369,9 +49382,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi\laravel\final-project\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi\laravel\final-project\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\laravel\final-project\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
