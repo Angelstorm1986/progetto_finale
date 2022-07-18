@@ -4,22 +4,43 @@
 
 <div class="container">
     <div class="row">
+        <div>
+            <h6>Do you want to create your developer profile?</h6>
+            <button class="create"><a href="{{route('admin.developers.create')}}">Click here</a></button>
+        </div>
         <div class="container-fluid d-flex justify-content-end">
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="search" type="submit">Search</button>
             </form>
         </div>
         @foreach ($users as $user)
             @foreach($developers as $developer)
-                @if ($developer->user_id == $user->id)
+                @auth
                     <div class="col-12">
-                        <a href="{{route('admin.developers.show', $developer->id)}}"><h1>
-                        {{$user->name}}</h1></a>
-                        <p>{{$user->surname}}</p>
-                    </div>   
-                @endif
+                        <img class="rounded-pill" src=" {{ asset('storage/' . $developer->photo) }} " alt="{{ $user->name }} {{ $user->surname }}">
+                        <h1>{{ $user->name }} {{ $user->surname }}</h1>
+                        <img src=" {{ asset('storage/' . $developer->curriculum) }} " alt="Curriculum Vitae">
+                        <p>{{ $developer->description }}</p>
+                        <p>{{ $developer->skills }}</p>
+                        <span>{{ $developer->phone_number }}</span>
+                        <a href="{{route('admin.developers.show', $developer->id)}}">Visualizza il profilo dello sviluppatore</a>
+                    </div>
+                @endauth  
             @endforeach
+        @endforeach
+        @foreach($developers as $developer)
+            @if ($developer->user_id == $user->id)
+                <div class="col-sm-12 col-md-6 col-xl-4">
+                    <img class="rounded-pill" src=" {{ asset('storage/' . $developer->photo) }} " alt="{{ $user->name }} {{ $user->surname }}">
+                    <h1>{{ $user->name }} {{ $user->surname }}</h1>
+                    <img src=" {{ asset('storage/' . $developer->curriculum) }} " alt="Curriculum Vitae">
+                    <p>{{ $developer->description }}</p>
+                    <p>{{ $developer->skills }}</p>
+                    <span>{{ $developer->phone_number }}</span>
+                    <a href="{{route('admin.developers.show', $developer->id)}}">Visualizza il profilo dello sviluppatore</a>
+                </div>
+            @endif 
         @endforeach
     </div>
 </div>

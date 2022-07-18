@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Developer;
 use App\User;
-use App\Comment;
+use App\Message;
 
 class DeveloperController extends Controller
 {
@@ -102,7 +102,7 @@ class DeveloperController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Developer $developer)
     {
         $request->validate($this->validationRule);
         $data = $request->all();
@@ -139,7 +139,7 @@ class DeveloperController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Developer $developer)
     {
         $developer->delete();
         return redirect()->route('admin.developers.index')->with("message","Developer with id: {$developer->id} successfully deleted !");

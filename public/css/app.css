@@ -19572,3 +19572,18 @@ footer {
   background-color: #22223B;
   color: #C9ADA7;
 }
+
+.create {
+  background-color: #4A4E69;
+  border: none;
+}
+.create a {
+  text-decoration: none;
+  color: #F2E9E4;
+}
+
+.search {
+  background-color: #4A4E69;
+  border: none;
+  color: #F2E9E4;
+}
