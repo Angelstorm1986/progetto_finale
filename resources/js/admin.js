@@ -27,7 +27,7 @@
          oFReader.readAsDataURL(document.getElementById("photo").files[0]);
  
          oFReader.onload = function (oFREvent) {
-             document.getElementById("uploadPreview").src = oFREvent.target.result;
+             document.getElementById("uploadPreviewImage").src = oFREvent.target.result;
          };
      },
      previewCurriculum() {
@@ -35,7 +35,7 @@
         oFReader.readAsDataURL(document.getElementById("curriculum").files[0]);
 
         oFReader.onload = function (oFREvent) {
-            document.getElementById("uploadPreview").src = oFREvent.target.result;
+            document.getElementById("uploadPreviewCv").src = oFREvent.target.result;
         };
     },
      submitForm(){

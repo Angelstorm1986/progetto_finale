@@ -14,7 +14,7 @@
 
         <div class="col-sm-8">
             <div class="form-group">
-                <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
+                <img id="uploadPreviewCv" width="100" src="https://via.placeholder.com/300x200%22%3E">
                 <label for="curriculum">Aggiungi curriculum .png</label>
                 <input type="file" id="curriculum" name="curriculum" onchange="boolpress.previewCurriculum();">
                 @error('curriculum')
@@ -25,7 +25,7 @@
 
         <div class="col-sm-8">
             <div class="form-group">
-                <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200%22%3E">
+                <img id="uploadPreviewImage" width="100" src="https://via.placeholder.com/300x200%22%3E">
                 <label for="photo">Aggiungi immagine</label>
                 <input type="file" id="photo" name="photo" onchange="boolpress.previewImage();">
                 @error('photo')
