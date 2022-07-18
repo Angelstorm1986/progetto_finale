@@ -8,8 +8,6 @@
 
     <div>
         <p>{{$developer->curriculum}}</p>
-        <h1>Tua Mamma</h1>
-
     </div>
 
 <form action="{{ route('admin.messages.store') }}" method="POST" class="boot" enctype="multipart/form-data">

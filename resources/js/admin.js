@@ -47,7 +47,7 @@
  const app = new Vue({
     el: '#app',
     data:{
-        nome : 'Andrea',
+        nome : '',
         surname : '',
         address: '',
         date_of_birth: '',
