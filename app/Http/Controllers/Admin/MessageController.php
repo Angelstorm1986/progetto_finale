@@ -40,6 +40,7 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        if($data['content'] != ''){
         $newMessage = new Message();
         $newMessage->name = $data['name'];
         $newMessage->content = $data['content'];
@@ -47,6 +48,10 @@ class MessageController extends Controller
         $newMessage->developer_id = $data['developer_id'];
 
          return $newMessage->save();
+        } else{
+            $comtrol = true;
+            return compact('comtrol');
+        }
 
         //Mail::to('matteo.nichelini@gmail.com')->send(new SendNewMail($newComment->post));
     }

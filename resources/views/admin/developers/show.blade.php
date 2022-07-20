@@ -11,6 +11,7 @@
             <p>{{ $developer->description }}</p>
             <p>{{ $developer->skills }}</p>
             <span>{{ $developer->phone_number }}</span>
+            @if ($developer->user_id == Auth::user()->id)
             <div class="d-flex align-items-start">
                 <button class="m-3 btn btn-warning">
                     <a class="text-decoration-none text-light" href="{{route('admin.developers.edit', $developer->id)}}">Modify</a>
@@ -22,7 +23,8 @@
                 </form>
             </div>
         </div>
-        @if ($developer->user_id != $user->id)
+        @endif
+        @if ($developer->user_id != Auth::user()->id)
             <div id="comment">
                 <form action="{{ route('admin.messages.store') }}" method="POST" class="boot" enctype="multipart/form-data">
                     <h4 class="text-center text-uppercase">inserisci un commento</h4>

@@ -53,7 +53,7 @@
                                 {{ Auth::user()->surname }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('admin.developers.show', DB::table('developers')->where('user_id', Auth::user()->id)->bindings['where'])}}">Dashboard</a>
+                                <a class="dropdown-item" href="{{route('admin.developers.show', DB::table('developers')->where('user_id', Auth::user()->id)->value('id'))}}">Dashboard</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
