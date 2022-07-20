@@ -45,7 +45,16 @@
                 {{old('description')}}
             </textarea>
         </div>
+        <div class="col-sm-8">
+            <label for="languages" class="col-sm-4 col-form-label" id="languages">linguaggi
+            @foreach($languages as $language)
+                <input type="checkbox" id="{{$language->name}}" name="languages[]" value="{{$language->id}}"> <label for="{{$language->name}}">{{$language->name}}</label>
+            @endforeach
+            <p>puoi avere anche un profilo developer vuoto, ma noi ti consigliamo di inserire almeno i linguaggi!</p>
+        </label>
+        </div>
     </div>
+
     <button class="btn btn-warning"><strong>Save</strong></button>
 </form>
 @endsection

@@ -1,11 +1,6 @@
-{{-- <?php
-    use App\Developer;
-
-    $developer = DB::table('developers')->where('user_id', Auth::user()->id);
-
-    
-    dump($developer->bindings['where']);
-?> --}}
+<?php
+   $cazzo = false;
+?> 
 <header>
     <nav class="navbar navbar-expand-md shadow-sm">
         <div class="container">
@@ -53,7 +48,16 @@
                                 {{ Auth::user()->surname }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('admin.developers.show', DB::table('developers')->where('user_id', Auth::user()->id)->value('id'))}}">Dashboard</a>
+                            @if(DB::table('developers')->where('user_id', Auth::user()->id)->value('id') != null)
+                                <a class="dropdown-item" href="{{route(
+                                    'admin.developers.show', 
+                                    DB::table('developers')->where('user_id', Auth::user()->id)->value('id') != null ? 
+                                    DB::table('developers')->where('user_id', Auth::user()->id)->value('id') :
+                                    ''
+                                    )}}">Dashboard</a>
+                            @else
+                                <a class="dropdown-item" href="{{route('admin.developers.create')}}">Crea developer</a>
+                            @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">

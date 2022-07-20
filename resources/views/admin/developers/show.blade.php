@@ -51,9 +51,11 @@
                             </textarea>
                         </div>
                     </div>
+                    
                     <div class="d-flex justify-content-center pb-5">
-                        <button class="btn btn-warning"><strong>Save</strong></button>
+                        <button class="btn btn-warning" v-if="content.length > 10 && mail.includes('@', '.') && nome.includes(' ') && nome.substr(-1) != ' ' && nome.substr(0, 1) != ' '"><strong>Save</strong></button>
                     </div>
+                    
                 </form>
             </div>
 
@@ -86,7 +88,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-warning"><strong>Save</strong></button>
+                    <button class="btn btn-warning" v-if="mail.includes('@', '.') && nome.includes(' ') && nome.substr(-1) != ' ' && nome.substr(0, 1) != ' '"><strong>Save</strong></button>
                 </div>
             </form>
         @endif

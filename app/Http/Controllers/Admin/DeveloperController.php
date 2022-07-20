@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Developer;
 use App\User;
+use App\Language;
 use App\Message;
 
 
@@ -34,7 +35,8 @@ class DeveloperController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('admin.developers.create', compact('users'));
+        $languages = Language::all();
+        return view('admin.developers.create', compact('users', 'languages'));
     }
 
     /**
@@ -68,6 +70,7 @@ class DeveloperController extends Controller
 
 
         $newDeveloper->save();
+                $newDeveloper->languages()->sync($data['languages']);
 
         return Redirect()->route('admin.developers.show', $newDeveloper->id);
     }

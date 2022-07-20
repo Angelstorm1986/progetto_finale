@@ -21,7 +21,7 @@ class Developer extends Model
     }
 
     public function Languages(){
-        return $this->hasMany('App\Language');
+        return $this->belongsToMany('App\Language');
     }
 
     public function Sponsors(){
