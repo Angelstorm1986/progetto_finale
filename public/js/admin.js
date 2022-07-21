@@ -49279,8 +49279,10 @@ var app = new Vue({
     email: '',
     mail: '',
     content: '',
+    number: '',
     checkMail: false,
-    checkName: false
+    checkName: false,
+    checkNumber: false
   },
   updated: function updated() {
     if (this.nome == '') {
@@ -49292,6 +49294,13 @@ var app = new Vue({
       console.log(this.checkName);
     } else {
       this.checkName = false;
+    }
+
+    if (this.mail.includes('@', '.') == false && this.mail !== '') {
+      this.checkMail = true;
+      console.log(this.checkMail);
+    } else {
+      this.checkMail = false;
     }
 
     if (this.mail.includes('@', '.') == false && this.mail !== '') {

@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<?php
+ if(!isset(DB::table('developers')->where('user_id', Auth::user()->id))){
+    return redirect('admin.developer.edit');
+ }
+?>
 
 <form action="{{ route('admin.developers.store') }}" method="POST" class="boot" enctype="multipart/form-data">
     @csrf
@@ -37,7 +42,7 @@
 
         <label for="phone_number" class="col-sm-8 col-form-label">phone number</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" placeholder="Inserisci un titolo" name="phone_number">
+            <input type="number" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" placeholder="Inserisci un titolo" name="phone_number" maxlength="13">
         </div>
         <div class="col-sm-8">
             <label for="description" class="col-sm-4 col-form-label">description</label>

@@ -51,8 +51,10 @@
         email: '',
         mail: '',
         content: '',
+        number: '',
         checkMail: false,
         checkName: false,
+        checkNumber: false,
     },
     updated(){
         if(this.nome == ''){
@@ -64,6 +66,12 @@
             console.log(this.checkName)
         } else{
             this.checkName = false;
+        }
+        if(this.mail.includes('@', '.') == false && this.mail !== ''){
+            this.checkMail = true
+            console.log(this.checkMail)
+        } else{
+            this.checkMail = false
         }
         if(this.mail.includes('@', '.') == false && this.mail !== ''){
             this.checkMail = true
