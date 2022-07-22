@@ -11,17 +11,8 @@
             <p>{{ $developer->description }}</p>
             <p>{{ $developer->skills }}</p>
             <span>{{ $developer->phone_number }}</span>
-            @if ($developer->user_id == Auth::user()->id)
-            <div class="d-flex align-items-start">
-                <button class="m-3 btn btn-warning">
-                    <a class="text-decoration-none text-light" href="{{route('admin.developers.edit', $developer->id)}}">Modify</a>
-                </button>
-            </div>
-        </div>
-        @endif
-        @if ($developer->user_id != Auth::user()->id)
             <div id="comment">
-                <form action="{{ route('admin.messages.store') }}" method="POST" class="boot" enctype="multipart/form-data">
+                <form action="{{ route('guest.messages.store') }}" method="POST" class="boot" enctype="multipart/form-data">
                     <h4 class="text-center text-uppercase">inserisci un commento</h4>
                     @csrf
                     <input type="text"  class="form-control d-none" id="developer_id" value="{{$developer->id}}" name="developer_id"> 
@@ -35,7 +26,7 @@
                         </div>
                         <div class="col-sm-8">
                             <label for="mail" class="col-sm-4 col-form-label">Mail: </label>
-                            <input type="text" class="form-control @error('mail') is-invalid @enderror" id="mail" name="mail" value="{{is_null(Auth::user()) ? '' : $user->email}}" v-model.lazy="mail" placeholder="Inserisci la tua mail">
+                            <input type="text" class="form-control @error('mail') is-invalid @enderror" id="mail" name="mail" value="" v-model.lazy="mail" placeholder="Inserisci la tua mail">
                                 <span v-if="checkMail == true">
                                     <strong>La mail inserita non è valida</strong>
                                 </span>
@@ -54,14 +45,14 @@
                 </form>
             </div>
 
-            <form action="{{ route('admin.reviews.store') }}" method="POST" class="boot" enctype="multipart/form-data">
+            <form action="{{ route('guest.reviews.store') }}" method="POST" class="boot" enctype="multipart/form-data">
                 <h4 class="text-center text-uppercase">inserisci una recensione</h4>
                 @csrf
                 <input type="text"  class="form-control d-none" id="developer_id" value="{{$developer->id}}" name="developer_id"> 
                 <div class="mb-3 row justify-content-center">
                     <div class="col-sm-8">
                         <label for="name" class="col-sm-8 col-form-label">Name:</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Inserisci il tuo nome" name="name" value="{{is_null(Auth::user()) ? '' : $user->name.$user->surname}}" v-model.lazy="nome">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Inserisci il tuo nome" name="name" value="" v-model.lazy="nome">
                         <span v-if="checkName == true">
                             <strong>Ricordati di inserire nome e cognome</strong>
                         </span>
@@ -86,7 +77,6 @@
                     <button class="btn btn-warning" v-if="mail.includes('@', '.') && nome.includes(' ') && nome.substr(-1) != ' ' && nome.substr(0, 1) != ' '"><strong>Save</strong></button>
                 </div>
             </form>
-        @endif
     </div>
 @endsection
 

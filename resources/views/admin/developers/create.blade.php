@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <?php
- if(!isset(DB::table('developers')->where('user_id', Auth::user()->id))){
-    return redirect('admin.developer.edit');
+ if(null !== DB::table('developers')->where('user_id', Auth::user()->id)){
+    redirect('admin.developer.edit');
  }
 ?>
 

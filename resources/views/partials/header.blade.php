@@ -4,9 +4,15 @@
 <header>
     <nav class="navbar navbar-expand-md shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            @if(Auth::user())
+            <a class="navbar-brand" href="{{ route('admin.home') }}">
                 BDevelopers
             </a>
+            @else
+            <a class="navbar-brand" href="{{ route('guest.home') }}">
+                BDevelopers
+            </a>
+            @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -14,11 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    @auth
                         <li class="nav-item">
+                            @if(Auth::user())
                             <a class="nav-link" href="{{ route('admin.developers.index') }}" >
                                 <div class="choice-button {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}">Developers</div>
                             </a>
+                            @else
+                            <a class="nav-link" href="{{ route('guest.developers.index') }}" >
+                                <div class="choice-button {{Route::currentRouteName() == 'guest.developers.index' ? 'active' : ''}}">Inizia a cooperare</div>
+                            </a>
+                            @endif
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.messages.index' ? 'active' : ''}}" href="{{ route('admin.messages.index') }}" >Messages</a>
@@ -26,7 +37,6 @@
                         {{-- <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.reviews.index' ? 'active' : ''}}" href="{{ route('admin.reviews.index') }}" >Reviews</a>
                         </li> --}}
-                    @endauth
                 </ul>
 
                 <!-- Right Side Of Navbar -->

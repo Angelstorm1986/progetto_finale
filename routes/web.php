@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view("guest.home");
-// });
-
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -27,12 +24,25 @@ Route::middleware('auth')
    ->name('admin.')
    ->prefix('admin')
    ->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/developers', 'DeveloperController');
+    Route::resource('/messages', 'MessageController');
+    Route::resource('/reviews', 'ReviewController');
+});
+
+Route::middleware('guest')
+    ->namespace('Guest')
+   ->name('guest.')
+   ->prefix('guest')
+   ->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('/developers', 'DeveloperController');
     Route::resource('/messages', 'MessageController');
     Route::resource('/reviews', 'ReviewController');
 });
 
-Route::get("{any?}", function() {
-    return view("guest.home");
-})->where("any", ".*");
+Route::get('/', function () {
+     return view("guest.home");
+});
+Route::view("home","admin/home");
+

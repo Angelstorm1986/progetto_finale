@@ -78,6 +78,6 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'slug' => $data['name']
         ]);
-        // return redirect('admin.developers.index', compact('developers'));
+        return redirect('admin.developers.index', compact('developers'));
     }
 }

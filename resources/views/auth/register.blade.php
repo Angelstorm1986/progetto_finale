@@ -16,7 +16,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" v-model="nome">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" v-model="nome" max="10">
     
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                                 <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" v-model="surname">
+                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" v-model="surname" max="15">
     
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
