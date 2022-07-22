@@ -11,6 +11,7 @@ use App\Developer;
 use App\User;
 use App\Language;
 use App\Message;
+use DB;
 
 
 class DeveloperController extends Controller
@@ -73,7 +74,7 @@ class DeveloperController extends Controller
 
 
         $newDeveloper->save();
-                $newDeveloper->languages()->sync($data['languages']);
+        $newDeveloper->languages()->sync($data['languages']);
 
         return Redirect()->route('admin.developers.show', $newDeveloper->id);
     }
@@ -107,7 +108,12 @@ class DeveloperController extends Controller
      */
     public function edit(Developer $developer)
     {
-        return view('admin.developers.edit',compact('developer'));
+        $checked = DB::table('developer_language')->where('developer_id', $developer->id)->get('language_id');
+        $languages = Language::all();
+        // foreach($languages as $lingua){
+        //     array_push($checked, DB::table('developer_language')->where('developer_id', $developer->id)->get('language_id'));
+        // }
+        return view('admin.developers.edit',compact('developer', 'languages', 'checked'));
     }
 
     /**
@@ -119,7 +125,6 @@ class DeveloperController extends Controller
      */
     public function update(Request $request, Developer $developer)
     {
-        $request->validate($this->validationRule);
         $data = $request->all();
 
        
@@ -142,6 +147,8 @@ class DeveloperController extends Controller
             $path_image = Storage::put("uploads", $data['photo']);
             $developer->photo = $path_image;
         }
+
+        $developer->languages()->sync($data['languages']);
 
         $developer->update();
 
