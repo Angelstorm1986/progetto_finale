@@ -14,13 +14,7 @@
             </select>
         </div>
     </form>
-    <br>
-    <div class="create">
-        <h4>Create your developer profile:</h4>
-        <button class="m-3 btn btn-warning">
-            <a class="text-decoration-none text-light" href="{{route('admin.developers.create')}}">Click here</a>
-        </button>
-    </div>
+    
     <div class="row">
         @foreach ($users as $user)
             @foreach($developers as $developer)
