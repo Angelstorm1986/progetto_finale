@@ -49283,8 +49283,18 @@ var app = new Vue({
     checkMail: false,
     checkName: false,
     developers: [],
+    filteredDevelopers: [],
     selectedLanguage: '',
     checkNumber: false
+  },
+  methods: {
+    filtra: function filtra(developer) {
+      developer.languages.forEach(function (language) {
+        if (language.id == this.selectedLanguage) {
+          return true;
+        }
+      });
+    }
   },
   updated: function updated() {
     if (this.nome == '') {
@@ -49311,13 +49321,24 @@ var app = new Vue({
     } else {
       this.checkMail = false;
     }
+
+    if (this.selectedLanguage != '') {
+      console.log(this.selectedLanguage);
+      this.filteredDevelopers = this.developers.filter(function (developer) {
+        return developer.languages.values(this.selectedLanguage);
+      });
+      console.log(this.filteredDevelopers);
+    } else {
+      this.filteredDevelopers = this.developers;
+      console.log(this.filteredDevelopers);
+    }
   },
   created: function created() {
     var _this = this;
 
     axios.get('/api/developers').then(function (res) {
       _this.developers = res.data;
-      console.log(res.data.languages);
+      console.log(res.data);
     })["catch"](function (error) {
       console.log(error);
     }); // filtro() {
@@ -49409,9 +49430,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })

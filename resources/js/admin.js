@@ -55,9 +55,19 @@
         checkMail: false,
         checkName: false,
         developers:[],
+        filteredDevelopers: [],
         selectedLanguage: '',
         checkNumber: false,
-    },   
+    }, 
+    methods:{
+        filtra: function(developer){
+            developer.languages.forEach(function(language){ 
+                if(language.id == this.selectedLanguage){
+                    return true
+                } 
+            })
+    },
+},
     updated(){
         if(this.nome == ''){
             this.checkName = false;
@@ -81,11 +91,24 @@
         } else{
             this.checkMail = false
         }
+
+        if(this.selectedLanguage != ''){
+            console.log(this.selectedLanguage)
+            this.filteredDevelopers = this.developers.filter(function(developer){
+                return developer.languages.values(this.selectedLanguage)
+            })
+            console.log(this.filteredDevelopers)
+        } else {
+            this.filteredDevelopers = this.developers
+            console.log(this.filteredDevelopers)
+        }
+
+        
     },
     created(){
         axios.get('/api/developers').then((res)=>{
             this.developers = res.data;
-            console.log(res.data.languages);
+            console.log(res.data);
         }).catch((error) =>{
             console.log(error);
         });
