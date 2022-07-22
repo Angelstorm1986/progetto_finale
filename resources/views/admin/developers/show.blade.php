@@ -19,7 +19,7 @@
                 <form action="{{ route('admin.developers.destroy', $developer->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" onclick="boolpress.openModal(event, {{ $developer->id }})" class="m-3 btn btn-danger delete">Delete</button>
+                    <button type="submit" class="m-3 btn btn-danger delete">Delete</button>
                 </form>
             </div>
         </div>

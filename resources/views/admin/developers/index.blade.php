@@ -15,9 +15,9 @@
         </div>
     </form>
     <br>
-    <div class="create">
+    <div>
         <h4>Create your developer profile:</h4>
-        <button class="m-3 btn btn-warning">
+        <button class="btn create">
             <a class="text-decoration-none text-light" href="{{route('admin.developers.create')}}">Click here</a>
         </button>
     </div>

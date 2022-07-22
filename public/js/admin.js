@@ -49247,7 +49247,7 @@ window.boolpress = {
 
     this.itemid = id; //console.log(e.currentTarget);
 
-    this.currentForm = e.currentTarget.parentNode; // console.log(this.currentForm);
+    this.currentForm = e.currentTarget.parentNode; //console.log(this.currentForm);
 
     $('#deleteModal-body').html("Sei sicuro di voler eliminare l'elemento con id: ".concat(this.itemid));
     $('#deleteModal').modal('show');

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<?php
+{{-- <?php
  if(!isset(DB::table('developers')->where('user_id', Auth::user()->id))){
     return redirect('admin.developer.edit');
  }
-?>
+?> --}}
 
 <form action="{{ route('admin.developers.store') }}" method="POST" class="boot" enctype="multipart/form-data">
     @csrf

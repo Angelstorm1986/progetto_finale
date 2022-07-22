@@ -161,10 +161,12 @@ class DeveloperController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Developer $developer)
+    public function destroy($id)
     {
+        $developer = Developer::findOrFail($id);
         $developer->delete();
         return redirect()->route('admin.developers.index')->with("message","Developer with id: {$developer->id} successfully deleted !");
+        
     }
 
 
