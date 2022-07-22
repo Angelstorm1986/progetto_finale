@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Developer;
+use App\Language;
 
 class DeveloperController extends Controller
 {
     public function index()
     {
-        $developers = Developer::all();
-        return response()->json($developers);
+        return response()->json(Developer::with('languages')->get());
     }
     public function show($slug)
     {

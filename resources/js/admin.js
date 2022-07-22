@@ -53,6 +53,10 @@
         content: '',
         checkMail: false,
         checkName: false,
+        developers:[],
+        selectedLanguage: ''
+    },
+    methods:{
     },
     updated(){
         if(this.nome == ''){
@@ -73,7 +77,23 @@
         }
     },
     created(){
-        console.log('tua mamma')
+        axios.get('/api/developers').then((res)=>{
+            this.developers = res.data;
+            console.log(res.data.languages);
+        }).catch((error) =>{
+            console.log(error);
+        });
+
+        // filtro() {
+        //     this.developers.forEach((developer) => {
+        //         console.log(developer.languages);
+        //         // if(developer.id.includes(this.selectedLanguage)){
+        //         //     nomi.visible = true;
+        //         // } else {
+        //         //     nomi.visible = false;
+        //         // }
+        //     })
+        // }
     }
  })
 

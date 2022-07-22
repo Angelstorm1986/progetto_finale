@@ -49280,8 +49280,11 @@ var app = new Vue({
     mail: '',
     content: '',
     checkMail: false,
-    checkName: false
+    checkName: false,
+    developers: [],
+    selectedLanguage: ''
   },
+  methods: {},
   updated: function updated() {
     if (this.nome == '') {
       this.checkName = false;
@@ -49302,7 +49305,23 @@ var app = new Vue({
     }
   },
   created: function created() {
-    console.log('tua mamma');
+    var _this = this;
+
+    axios.get('/api/developers').then(function (res) {
+      _this.developers = res.data;
+      console.log(res.data.languages);
+    })["catch"](function (error) {
+      console.log(error);
+    }); // filtro() {
+    //     this.developers.forEach((developer) => {
+    //         console.log(developer.languages);
+    //         // if(developer.id.includes(this.selectedLanguage)){
+    //         //     nomi.visible = true;
+    //         // } else {
+    //         //     nomi.visible = false;
+    //         // }
+    //     })
+    // }
   }
 });
 
@@ -49382,9 +49401,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
