@@ -49247,7 +49247,7 @@ window.boolpress = {
 
     this.itemid = id; //console.log(e.currentTarget);
 
-    this.currentForm = e.currentTarget.parentNode; // console.log(this.currentForm);
+    this.currentForm = e.currentTarget.parentNode; //console.log(this.currentForm);
 
     $('#deleteModal-body').html("Sei sicuro di voler eliminare l'elemento con id: ".concat(this.itemid));
     $('#deleteModal').modal('show');
@@ -49430,9 +49430,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
