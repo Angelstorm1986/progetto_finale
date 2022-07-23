@@ -9275,19 +9275,18 @@ header .nav-link {
   color: #F2E9E4;
   font-weight: bold;
 }
-header .nav-link .choice-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
 header .nav-link .active {
   color: #9A8C98;
 }
-header .nav-link .active::after {
-  position: absolute;
-  bottom: -1rem;
-  content: "";
-  width: 100%;
-  height: 3px;
-  background-color: #9A8C98;
+header .dropdown-menu {
+  background-color: #22223B;
+  padding: 0px;
+  margin: 0px;
+}
+header .dropdown-menu .dropdown-item {
+  color: #F2E9E4;
+}
+header .dropdown-menu .dropdown-item:hover {
+  background-color: #22223B;
+  color: #9A8C98;
 }
