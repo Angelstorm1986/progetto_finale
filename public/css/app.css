@@ -19608,11 +19608,9 @@ p {
   color: #b3b8cd;
   padding-top: 30px;
   position: relative;
-  width: 350px;
-  max-width: 100%;
+  width: 100%;
   text-align: center;
 }
-
 .card-container .pro {
   color: #22223B;
   background-color: #febb0b;
@@ -19624,12 +19622,9 @@ p {
   top: 30px;
   left: 30px;
 }
-
-.card-container .round {
-  border: 1px solid #F2E9E4;
-  border-radius: 50%;
-  padding: 7px;
+.card-container .img-container {
   width: 50%;
+  margin: 0 auto;
 }
 
 button.primary {

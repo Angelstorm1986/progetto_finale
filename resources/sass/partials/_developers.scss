@@ -52,34 +52,29 @@ p {
 }
 
 .card-container {
-	background-color: $darkpurple-tx;
+	background-color: $darkpurple-bg;
 	border-radius: 5px;
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
 	color: #b3b8cd;
 	padding-top: 30px;
 	position: relative;
-	width: 350px;
-	max-width: 100%;
+	width: 100%;
 	text-align: center;
-}
-
-.card-container .pro {
-	color: $darkpurple-tx;
-	background-color: #febb0b;
-	border-radius: 3px;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 3px 7px;
-	position: absolute;
-	top: 30px;
-	left: 30px;
-}
-
-.card-container .round {
-	border: 1px solid $light-bg;
-	border-radius: 50%;
-	padding: 7px;
-    width: 50%;
+	.pro {
+		color: $darkpurple-tx;
+		background-color: #febb0b;
+		border-radius: 3px;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 3px 7px;
+		position: absolute;
+		top: 30px;
+		left: 30px;
+	}
+	.img-container{
+		width: 50%;
+		margin: 0 auto;
+	}
 }
 
 button.primary {
@@ -98,7 +93,7 @@ button.primary.ghost {
 }
 
 .skills {
-	background-color: #1f1a36;
+	background-color: $more-darkpurple-bg;
 	text-align: left;
 	padding: 15px;
 	margin-top: 20px;
