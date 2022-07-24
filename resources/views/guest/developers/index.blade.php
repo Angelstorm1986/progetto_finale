@@ -44,7 +44,4 @@
     </div>
 </div>
 
-<?php
-?>
-
 @endsection

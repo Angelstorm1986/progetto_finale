@@ -1,11 +1,12 @@
 <footer class="text-center">
     <!-- Grid container -->
-    <div class="container d-flex justify-content-between align-items-center p-4">
-        <section class="my-4">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5598.010251754654!2d9.188941063947414!3d45.44955282290489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c41adc672217%3A0xce1930f741d06b03!2sVia%20Salasco%2C%205%2C%2020136%20Milano%20MI!5e0!3m2!1sit!2sit!4v1658077448774!5m2!1sit!2sit" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="container ">
+      <div class="row d-flex justify-content-between align-items-center p-4">
+        <section class="my-4 col-lg-6 col-sm-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.1396324549096!2d13.539830615336482!3d43.49942257912692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132d875fa31f3325%3A0xd60391645d6c1200!2sVia%20Camerano%2C%205%2C%2060027%20Osimo%20Stazione%20AN!5e0!3m2!1sit!2sit!4v1658573905079!5m2!1sit!2sit" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
         <!-- Section: Social media -->
-        <section class="my-4">
+        <section class="my-4 col-lg-6 col-sm-12">
             <h4>Visita i nostri Social media:</h4>
             <!-- Facebook -->
             <a
@@ -54,6 +55,8 @@
             role="button"
             ><i class="fa-brands fa-github"></i></a>
         </section>
+      </div>
+        
       <!-- Section: Social media -->
     </div>
     <!-- Grid container -->

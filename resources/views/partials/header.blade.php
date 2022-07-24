@@ -14,7 +14,9 @@
             </a>
             @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">
+                    <i class="fa-solid fa-bars text-white"></i>
+                </span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,11 +25,11 @@
                         <li class="nav-item">
                             @if(Auth::user())
                             <a class="nav-link" href="{{ route('admin.developers.index') }}" >
-                                <div class="choice-button {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}">Developers</div>
+                                <div class=" {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}">Developers</div>
                             </a>
                             @else
                             <a class="nav-link" href="{{ route('guest.developers.index') }}" >
-                                <div class="choice-button {{Route::currentRouteName() == 'guest.developers.index' ? 'active' : ''}}">Inizia a cooperare</div>
+                                <div class=" {{Route::currentRouteName() == 'guest.developers.index' ? 'active' : ''}}">Inizia a cooperare</div>
                             </a>
                             @endif
                         </li>
@@ -52,7 +54,7 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                                 {{ Auth::user()->surname }}

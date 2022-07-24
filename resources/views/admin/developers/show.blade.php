@@ -4,21 +4,49 @@
 
 @section('content')
     <div class="container">
-        <div >
-            <img class="rounded-pill" src=" {{ asset('storage/' . $developer->photo) }} " alt="{{ $user->name }} {{ $user->surname }}">
-            <h1>{{ $user->name }} {{ $user->surname }}</h1>
-            <img src=" {{ asset('storage/' . $developer->curriculum) }} " alt="Curriculum Vitae">
-            <p>{{ $developer->description }}</p>
-            <p>{{ $developer->skills }}</p>
-            <span>{{ $developer->phone_number }}</span>
-            @if ($developer->user_id == Auth::user()->id)
-            <div class="d-flex align-items-start">
-                <button class="m-3 btn btn-warning">
-                    <a class="text-decoration-none text-light" href="{{route('admin.developers.edit', $developer->id)}}">Modify</a>
+        <div class="card-container my-3">
+            <span class="pro">PRO</span>
+            <div class="img-container d-flex justify-content-center">
+                <img class="round rounded-pill" src="{{ $developer->photo !== null ? asset('storage/' . $developer->photo) : asset('img/project-user.png') }}" alt="{{ $user->name . ' ' . $user->surname }}">
+            </div>
+            <a class="text-decoration-none text-reset" href="{{route('admin.developers.show', $developer->id)}}">
+                <h3>{{ $user->name }} {{ $user->surname }}</h3>
+            </a>        
+            <h6>{{ $user->address }}</h6>
+            <span class="phone"><small>Tel.number: {{ $developer->phone_number }}</small></span>
+            <div class="buttons">
+                <button class="primary">
+                    Message
+                </button>
+                <button class="primary ghost">
+                    Reviews
                 </button>
             </div>
+            <div class="container">
+                <div class="skills">
+                    <h6>Description:</h6>
+                    <p>{{ $developer->description }}</p>
+                    <h6>Skills:</h6>
+                    <p><strong>{{ $developer->skills }}</strong></p>
+                    <div class="language">
+                        <h6>Languages:</h6>
+                        <ul>
+                            @foreach ($developer->languages as $language)
+                                <li>{{$language->name}}</li>
+                            @endforeach
+                        </ul>
+                    </div> 
+                    @if ($developer->user_id == Auth::user()->id)
+                        <div class="d-flex align-items-start">
+                            <button class="m-3 btn btn-edit">
+                                <a class="text-decoration-none text-light" href="{{route('admin.developers.edit', $developer->id)}}">Edit</a>
+                            </button>
+                        </div>
+                    @endif
+                </div>
+            </div>
         </div>
-        @endif
+        
         @if ($developer->user_id != Auth::user()->id)
             <div id="comment">
                 <form action="{{ route('admin.messages.store') }}" method="POST" class="boot" enctype="multipart/form-data">

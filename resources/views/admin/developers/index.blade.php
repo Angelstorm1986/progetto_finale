@@ -30,9 +30,7 @@
                 <option value="40">40</option>
                 <option value="50">50</option>
             </select>
-        </div>
-    </form>
-    
+
     <div class="row">
                     <div class="col-sm-12 col-md-6 col-xl-4" v-for="(developer, index) in developers">
                         {{-- <img class="rounded-pill" src=" {{ asset('storage/' . developer.photo) }} " alt="W"> --}}
@@ -42,6 +40,4 @@
                         <a :href=" 'http://127.0.0.1:8000/admin/developers/' + developer.id">Visualizza il profilo dello sviluppatore</a>
                     </div>
     </div>
-</div>
-
 @endsection

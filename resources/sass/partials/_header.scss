@@ -1,26 +1,26 @@
 header{
-    background-color: $darkpurple-bg;
+    background-color: $darkpurple-bg ;
     .navbar-brand{
-        color: $sand-tx;
+        color: $sand-tx ;
     }
     .nav-link{
         color: $light-tx;
-        font-weight: bold;
-        .choice-button{
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
+        font-weight: bold ;
         .active{
-            color: $grey-tx;
-            &::after{
-                position: absolute;
-                bottom: -1rem;
-                content: '';
-                width: 100%;
-                height: 3px;
-                background-color: $grey-bg;
-            }
+            color: $grey-tx ;
         }
     }
+    .dropdown-menu{
+        background-color: $darkpurple-bg ;
+        padding: 0px;
+        margin: 0px;
+        .dropdown-item{
+            color: $light-tx;
+        }
+        .dropdown-item:hover{
+            background-color: $darkpurple-bg ;
+            color: $grey-bg;
+        }   
+    }
 }
+    
