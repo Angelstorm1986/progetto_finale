@@ -52,22 +52,31 @@
         mail: '',
         content: '',
         number: '',
+        users: [],
         checkMail: false,
         checkName: false,
         developers:[],
-        filteredDevelopers: [],
-        selectedLanguage: '',
+        selectedLanguage: 'nulla',
+        selectedRate: 0,
+        selectedNumber: 0,
         checkNumber: false,
     }, 
     methods:{
-        filtra: function(developer){
-            developer.languages.forEach(function(language){ 
-                if(language.id == this.selectedLanguage){
-                    return true
-                } 
-            })
+        filtra: function(){
+                axios.get(`/api/filter/${this.selectedLanguage}/${this.selectedRate}/${this.selectedNumber}`).then((res)=>{
+                    this.developers = res.data;
+                    console.log(this.developers);
+                }).catch((error) =>{
+                    console.log(error);
+                });
+            
+        },
+        redirect: function($id){
+            let url = "{{route('admin.developers.show', ':id')}}"
+            url = url.replace(':id', $id)
+            return url
+        }
     },
-},
     updated(){
         if(this.nome == ''){
             this.checkName = false;
@@ -91,38 +100,14 @@
         } else{
             this.checkMail = false
         }
-
-        if(this.selectedLanguage != ''){
-            console.log(this.selectedLanguage)
-            this.filteredDevelopers = this.developers.filter(function(developer){
-                return developer.languages.values(this.selectedLanguage)
-            })
-            console.log(this.filteredDevelopers)
-        } else {
-            this.filteredDevelopers = this.developers
-            console.log(this.filteredDevelopers)
-        }
-
-        
     },
     created(){
-        axios.get('/api/developers').then((res)=>{
+        axios.get(`/api/filter/${this.selectedLanguage}/${this.selectedRate}/${this.selectedNumber}`).then((res)=>{
             this.developers = res.data;
             console.log(res.data);
         }).catch((error) =>{
             console.log(error);
         });
-
-        // filtro() {
-        //     this.developers.forEach((developer) => {
-        //         console.log(developer.languages);
-        //         // if(developer.id.includes(this.selectedLanguage)){
-        //         //     nomi.visible = true;
-        //         // } else {
-        //         //     nomi.visible = false;
-        //         // }
-        //     })
-        // }
     }
  })
 

@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/developers', 'Api\DeveloperController@index');
+Route::get('/filter/{id}/{minRating}/{minReview}', 'Api\LanguageController@filter');

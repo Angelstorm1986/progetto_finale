@@ -44,5 +44,5 @@ Route::middleware('guest')
 Route::get('/', function () {
      return view("guest.home");
 });
-Route::view("home","admin/home");
+Route::view("home","admin/developers/index");
 

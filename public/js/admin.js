@@ -49280,20 +49280,30 @@ var app = new Vue({
     mail: '',
     content: '',
     number: '',
+    users: [],
     checkMail: false,
     checkName: false,
     developers: [],
-    filteredDevelopers: [],
-    selectedLanguage: '',
+    selectedLanguage: 'nulla',
+    selectedRate: 0,
+    selectedNumber: 0,
     checkNumber: false
   },
   methods: {
-    filtra: function filtra(developer) {
-      developer.languages.forEach(function (language) {
-        if (language.id == this.selectedLanguage) {
-          return true;
-        }
+    filtra: function filtra() {
+      var _this = this;
+
+      axios.get("/api/filter/".concat(this.selectedLanguage, "/").concat(this.selectedRate, "/").concat(this.selectedNumber)).then(function (res) {
+        _this.developers = res.data;
+        console.log(_this.developers);
+      })["catch"](function (error) {
+        console.log(error);
       });
+    },
+    redirect: function redirect($id) {
+      var url = "{{route('admin.developers.show', ':id')}}";
+      url = url.replace(':id', $id);
+      return url;
     }
   },
   updated: function updated() {
@@ -49321,36 +49331,16 @@ var app = new Vue({
     } else {
       this.checkMail = false;
     }
-
-    if (this.selectedLanguage != '') {
-      console.log(this.selectedLanguage);
-      this.filteredDevelopers = this.developers.filter(function (developer) {
-        return developer.languages.values(this.selectedLanguage);
-      });
-      console.log(this.filteredDevelopers);
-    } else {
-      this.filteredDevelopers = this.developers;
-      console.log(this.filteredDevelopers);
-    }
   },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
-    axios.get('/api/developers').then(function (res) {
-      _this.developers = res.data;
+    axios.get("/api/filter/".concat(this.selectedLanguage, "/").concat(this.selectedRate, "/").concat(this.selectedNumber)).then(function (res) {
+      _this2.developers = res.data;
       console.log(res.data);
     })["catch"](function (error) {
       console.log(error);
-    }); // filtro() {
-    //     this.developers.forEach((developer) => {
-    //         console.log(developer.languages);
-    //         // if(developer.id.includes(this.selectedLanguage)){
-    //         //     nomi.visible = true;
-    //         // } else {
-    //         //     nomi.visible = false;
-    //         // }
-    //     })
-    // }
+    });
   }
 });
 
@@ -49430,9 +49420,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi_php\classe59\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\progetto_finale\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })

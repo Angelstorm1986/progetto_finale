@@ -85,8 +85,9 @@ class DeveloperController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Developer $developer)
+    public function show($number)
     {
+        $developer = Developer::findOrFail($number);
         $user = User::findOrFail($developer->user_id);
 
         
