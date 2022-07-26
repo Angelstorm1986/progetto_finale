@@ -18,6 +18,7 @@ class LanguageSeeder extends Seeder
             $newLanguage->name = $language['name'];
             $newLanguage->description = $language['description'];
             $newLanguage->current_version = $language['current_version'];
+            $newLanguage->logo = $language['logo'];
             $newLanguage->save();
         }
     }

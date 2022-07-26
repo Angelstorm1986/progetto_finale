@@ -8,7 +8,8 @@
         <select @change="filtra" name="language_id" id="language" class="form-control" v-model="selectedLanguage">
             <option value="nulla">Select Language</option>
             @foreach ($languages as $language)
-                <option value="{{$language->id}}">{{$language->name}}</option>
+                    <option value="{{$language->id}}"style="background-image:url({{asset($language->logo)}});">{{$language->name}}
+                    </option>
             @endforeach
         </select>
         <label for="rate">Seleziona il voto minimo</label>
@@ -39,6 +40,7 @@
                     <a :href=" 'http://127.0.0.1:8000/guest/developers/' + developer.id">Visualizza il profilo dello sviluppatore</a>
                 </div>
 </div>
+
 
 <?php
 ?>
