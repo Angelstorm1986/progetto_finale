@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'BDevelopers - Home')
+
 @section('content')
 
 <form action="" method="post">
@@ -39,6 +41,22 @@
                     <span>@{{ developer.phone_number }}</span>
                     <a :href=" 'http://127.0.0.1:8000/guest/developers/' + developer.id">Visualizza il profilo dello sviluppatore</a>
                 </div>
+                <a class="text-decoration-none text-reset" href="">
+                    <h3>@{{ developer.name + ' ' + developer.surname }}</h3>
+                </a>
+                <p>@{{ developer.media }}</p>
+                <p>@{{ developer.numRev }}</p>              
+                <div class="buttons my-2">
+                    <button class="primary">
+                        Message
+                    </button>
+                    <button class="primary ghost">
+                        Reviews
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

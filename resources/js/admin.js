@@ -104,7 +104,7 @@
     created(){
         axios.get(`/api/filter/${this.selectedLanguage}/${this.selectedRate}/${this.selectedNumber}`).then((res)=>{
             this.developers = res.data;
-            console.log(res.data);
+            console.log(this.developers);
         }).catch((error) =>{
             console.log(error);
         });
