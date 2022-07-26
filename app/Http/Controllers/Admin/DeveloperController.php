@@ -27,7 +27,6 @@ class DeveloperController extends Controller
         $developers = Developer::all();
         $languages = Language::all();
         
-        
         return view('admin.developers.index', compact('developers', 'users', 'languages'));
     }
 
