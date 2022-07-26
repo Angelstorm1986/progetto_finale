@@ -46,8 +46,11 @@ p {
 	width: 100%;
 	text-align: center;
 	.img-container{
-		width: 50%;
 		margin: 0 auto;
+		.round{
+			width: 20vw;
+			height: 20vw;
+		}
 	}
 }
 
@@ -89,9 +92,34 @@ button.primary.ghost {
 }
 
 .buttons{
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .btn-edit{
     background-color: $grey-bg;
+}
+.cards{
+	width: 100%;
+	.square{
+		display: inline-block;
+		width: calc((100% - 30px) / 3);
+		height: 20vw;
+		padding: 10px;
+		img{
+			width: 100%;
+			height: 100%;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+	}
+	.square-center{
+		margin: 0 10px;
+	}
+}
+.jumbotron{
+	width: 100%;
+	padding: 0;
+	img{
+		width: 100%;
+	}
 }
