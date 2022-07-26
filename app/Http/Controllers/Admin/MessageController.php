@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
+use App\Developer;
+use App\User;
+use App\Language;
 use App\Message;
 
 class MessageController extends Controller
@@ -18,7 +21,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $developer = Developer::where('user_id', '=', Auth::id())->get('id');
+        $messages = Message::where('developer_id', '=', 18)->get();
+        dd($messages);
+        
+        return view('admin.messages.index',  compact('developer', 'messages'));
     }
 
     /**

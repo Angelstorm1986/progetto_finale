@@ -49287,7 +49287,11 @@ var app = new Vue({
     selectedLanguage: 'nulla',
     selectedRate: 0,
     selectedNumber: 0,
-    checkNumber: false
+    checkNumber: false,
+    reviews: [],
+    comments: [],
+    createComment: false,
+    createRev: false
   },
   methods: {
     filtra: function filtra() {
@@ -49295,7 +49299,6 @@ var app = new Vue({
 
       axios.get("/api/filter/".concat(this.selectedLanguage, "/").concat(this.selectedRate, "/").concat(this.selectedNumber)).then(function (res) {
         _this.developers = res.data;
-        console.log(_this.developers);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -49304,30 +49307,39 @@ var app = new Vue({
       var url = "{{route('admin.developers.show', ':id')}}";
       url = url.replace(':id', $id);
       return url;
+    },
+    visualFormCom: function visualFormCom() {
+      if (this.createComment == false) {
+        this.createComment = true;
+      } else {
+        this.createComment = false;
+      }
+    },
+    visualFormRev: function visualFormRev() {
+      if (this.createRev == false) {
+        this.createRev = true;
+      } else {
+        this.createRev = false;
+      }
     }
   },
   updated: function updated() {
     if (this.nome == '') {
       this.checkName = false;
-      console.log(this.checkName);
-      console.log(this.nome);
     } else if (!this.nome.includes(' ') || this.nome.substr(-1) == ' ' || this.nome.substr(0, 1) == ' ') {
       this.checkName = true;
-      console.log(this.checkName);
     } else {
       this.checkName = false;
     }
 
     if (this.mail.includes('@', '.') == false && this.mail !== '') {
       this.checkMail = true;
-      console.log(this.checkMail);
     } else {
       this.checkMail = false;
     }
 
     if (this.mail.includes('@', '.') == false && this.mail !== '') {
       this.checkMail = true;
-      console.log(this.checkMail);
     } else {
       this.checkMail = false;
     }
@@ -49337,7 +49349,19 @@ var app = new Vue({
 
     axios.get("/api/filter/".concat(this.selectedLanguage, "/").concat(this.selectedRate, "/").concat(this.selectedNumber)).then(function (res) {
       _this2.developers = res.data;
-      console.log(res.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    var idDev = document.getElementById('idDev').value;
+    axios.get("/api/review/".concat(idDev)).then(function (res) {
+      _this2.reviews = res.data;
+      console.log(_this2.reviews);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    axios.get("/api/comm/".concat(idDev)).then(function (res) {
+      _this2.comments = res.data;
+      console.log(_this2.comments);
     })["catch"](function (error) {
       console.log(error);
     });

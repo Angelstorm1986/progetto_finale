@@ -3,6 +3,9 @@
 @section('title', 'BDevelopers - Home')
 
 @section('content')
+<?php
+    
+?>
         <div class="flex-center position-ref full-height">
             <div id="root">
                 <h1><a href="{{ route('guest.developers.index') }}">link</a></h1>

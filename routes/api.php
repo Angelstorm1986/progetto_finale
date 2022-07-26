@@ -19,4 +19,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/developers', 'Api\DeveloperController@index');
-Route::get('/filter/{id}/{minRating}/{minReview}', 'Api\LanguageController@filter');
+Route::get('/filter/{id}/{minRating}/{minReview}', 'Api\RenderController@filter');
+Route::get('/review/{rev}', 'Api\ReviewController@review');
+Route::get('/comm/{com}', 'Api\CommentController@comm');

@@ -21,21 +21,20 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">    
+                    @if(Auth::user())
                         <li class="nav-item">
-                            @if(Auth::user())
                             <a class="nav-link" href="{{ route('admin.developers.index') }}" >
                                 <div class=" {{Route::currentRouteName() == 'admin.developers.index' ? 'active' : ''}}">Developers</div>
                             </a>
-                            @else
+                        </li>
+                    @else
+                        <li>
                             <a class="nav-link" href="{{ route('guest.developers.index') }}" >
                                 <div class=" {{Route::currentRouteName() == 'guest.developers.index' ? 'active' : ''}}">Inizia a cooperare</div>
                             </a>
-                            @endif
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.messages.index' ? 'active' : ''}}" href="{{ route('admin.messages.index') }}" >Messages</a>
-                        </li> --}}
+                    @endif
                         {{-- <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.reviews.index' ? 'active' : ''}}" href="{{ route('admin.reviews.index') }}" >Reviews</a>
                         </li> --}}
@@ -67,6 +66,7 @@
                                     DB::table('developers')->where('user_id', Auth::user()->id)->value('id') :
                                     ''
                                     )}}">Dashboard</a>
+                                    <a class="dropdown-item {{Route::currentRouteName() == 'admin.messages.index' ? 'active' : ''}}" href="{{ route('admin.messages.index') }}" >Messages</a>
                             @else
                                 <a class="dropdown-item" href="{{route('admin.developers.create')}}">Crea developer</a>
                             @endif
