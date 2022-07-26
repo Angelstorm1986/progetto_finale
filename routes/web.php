@@ -41,8 +41,10 @@ Route::middleware('guest')
     Route::resource('/reviews', 'ReviewController');
 });
 
-Route::get('/', function () {
-     return view("guest.home");
-});
+Route::view("home","guest/developers/index");
 Route::view("home","admin/developers/index");
+
+Route::get('/', function () {
+    return view("guest.home");
+});
 

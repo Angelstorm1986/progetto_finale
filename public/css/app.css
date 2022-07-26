@@ -19538,53 +19538,58 @@ readers do not read off random characters that represent icons */
 }
 
 body {
-  background-color: #F2E9E4;
+  background-color: #202020;
+  color: #FFF;
+  min-height: 100vh;
+  max-width: 100vw;
+  position: relative;
 }
 
 header {
-  background-color: #22223B;
+  background-color: #353535;
 }
 header .navbar-brand {
-  color: #C9ADA7;
+  color: #F5F5F5;
 }
 header .nav-link {
-  color: #F2E9E4;
+  color: #FFF;
   font-weight: bold;
 }
 header .nav-link .active {
-  color: #9A8C98;
+  color: #b1b1b1;
 }
 header .dropdown-menu {
-  background-color: #22223B;
+  background-color: #353535;
   padding: 0px;
   margin: 0px;
 }
 header .dropdown-menu .dropdown-item {
-  color: #F2E9E4;
+  color: #FFF;
 }
 header .dropdown-menu .dropdown-item:hover {
-  background-color: #22223B;
-  color: #9A8C98;
+  background-color: #353535;
+  color: #b1b1b1;
 }
 
 footer {
-  background-color: #22223B;
-  color: #C9ADA7;
+  background-color: #353535;
+  color: #F5F5F5;
+  width: 100%;
 }
 
 .create {
-  background-color: #4A4E69;
+  background-color: #4f4f4f;
   border: none;
 }
 .create a {
   text-decoration: none;
-  color: #F2E9E4;
+  color: #FFF;
 }
 
 .search {
-  background-color: #4A4E69;
+  background-color: #4f4f4f;
   border: none;
-  color: #F2E9E4;
+  color: #FFF;
 }
 
 h3 {
@@ -19602,25 +19607,13 @@ p {
 }
 
 .card-container {
-  background-color: #22223B;
-  border-radius: 5px;
+  background-color: #353535;
+  border-radius: 20px;
   box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
-  color: #b3b8cd;
   padding-top: 30px;
   position: relative;
   width: 100%;
   text-align: center;
-}
-.card-container .pro {
-  color: #22223B;
-  background-color: #febb0b;
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 3px 7px;
-  position: absolute;
-  top: 30px;
-  left: 30px;
 }
 .card-container .img-container {
   margin: 0 auto;
@@ -19631,10 +19624,9 @@ p {
 }
 
 button.primary {
-  background-color: #F2E9E4;
-  border: 1px solid #F2E9E4;
+  background-color: #FFF;
+  border: 1px solid #FFF;
   border-radius: 3px;
-  color: #22223B;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   padding: 7px 15px;
@@ -19642,14 +19634,15 @@ button.primary {
 
 button.primary.ghost {
   background-color: transparent;
-  color: #F2E9E4;
+  color: #FFF;
 }
 
 .skills {
-  background-color: #1f1a36;
+  background-color: #4f4f4f;
   text-align: left;
   padding: 15px;
   margin-top: 20px;
+  border-radius: 20px;
 }
 
 .skills ul {
@@ -19672,7 +19665,7 @@ button.primary.ghost {
 }
 
 .btn-edit {
-  background-color: #9A8C98;
+  background-color: #b1b1b1;
 }
 
 .cards {
@@ -19700,4 +19693,104 @@ button.primary.ghost {
 }
 .jumbotron img {
   width: 100%;
+}
+
+.shower {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+}
+
+.flex-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bolder;
+  border: 0px;
+  color: #FFF;
+}
+
+.comment-show {
+  border-radius: 20px;
+  color: #FFF;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+}
+.comment-show hr {
+  color: #202020;
+  border-top: 5px solid #202020;
+  border-radius: 50%;
+}
+.comment-show .nomi {
+  font-size: 20px;
+  font-weight: bold;
+}
+.comment-show .commento {
+  text-align: justify;
+  background-color: #4f4f4f;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+input, textarea, select {
+  background-color: #4f4f4f !important;
+  color: #F5F5F5 !important;
+  border: 1px solid #FFF !important;
+}
+
+::-moz-placeholder {
+  color: #b1b1b1 !important;
+}
+
+::placeholder {
+  color: #b1b1b1 !important;
+}
+
+label {
+  font-weight: bold !important;
+}
+
+#rev, #comment {
+  margin-bottom: 40px;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face {
+  transform: rotate(90deg);
+  width: 40%;
+}
+.face p {
+  line-height: 100%;
+  text-align: center;
+  font-size: 90px;
+}
+
+.card {
+  background-color: transparent !important;
+}
+.card .card-header {
+  background-color: transparent !important;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.btn {
+  vertical-align: baseline !important;
+}
+
+.index {
+  margin-top: 50px;
 }

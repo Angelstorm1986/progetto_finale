@@ -17,20 +17,6 @@
 // $font-size-base: 0.9rem;
 // $line-height-base: 1.6;
 
-// Backgrounds
-// $light-bg: #F2E9E4;
-// $sand-bg: #C9ADA7;
-// $grey-bg: #9A8C98;
-// $purple-bg: #4A4E69;
-// $darkpurple-bg: #22223B;
-
-// Texts
-// $light-tx: #F2E9E4;
-// $sand-tx: #C9ADA7;
-// $grey-tx: #9A8C98;
-// $purple-tx: #4A4E69;
-// $darkpurple-tx: #22223B;
-
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 
@@ -53,24 +39,12 @@ p {
 
 .card-container {
 	background-color: $darkpurple-bg;
-	border-radius: 5px;
+	border-radius: 20px;
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
-	color: #b3b8cd;
 	padding-top: 30px;
 	position: relative;
 	width: 100%;
 	text-align: center;
-	.pro {
-		color: $darkpurple-tx;
-		background-color: #febb0b;
-		border-radius: 3px;
-		font-size: 14px;
-		font-weight: bold;
-		padding: 3px 7px;
-		position: absolute;
-		top: 30px;
-		left: 30px;
-	}
 	.img-container{
 		margin: 0 auto;
 		.round{
@@ -84,7 +58,6 @@ button.primary {
 	background-color: $light-bg;
 	border: 1px solid $light-bg;
 	border-radius: 3px;
-	color: $darkpurple-tx;
 	font-family: Montserrat, sans-serif;
 	font-weight: 500;
 	padding: 7px 15px;
@@ -96,10 +69,11 @@ button.primary.ghost {
 }
 
 .skills {
-	background-color: $more-darkpurple-bg;
+	background-color: $purple-bg;
 	text-align: left;
 	padding: 15px;
 	margin-top: 20px;
+	border-radius: 20px;
 }
 
 .skills ul {

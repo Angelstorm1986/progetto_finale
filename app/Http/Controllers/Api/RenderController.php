@@ -10,7 +10,7 @@ use App\Language;
 use App\Review;
 
 
-class LanguageController extends Controller
+class RenderController extends Controller
 {
     public function filter($id, $minRating, $minReview)
     {
