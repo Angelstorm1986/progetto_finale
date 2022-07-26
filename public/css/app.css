@@ -19619,8 +19619,8 @@ p {
   margin: 0 auto;
 }
 .card-container .img-container .round {
-  width: 20vw;
-  height: 20vw;
+  width: 10vw;
+  height: 10vw;
 }
 
 button.primary {
@@ -19642,6 +19642,7 @@ button.primary.ghost {
   text-align: left;
   padding: 15px;
   margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 20px;
 }
 
@@ -19695,10 +19696,33 @@ button.primary.ghost {
   width: 100%;
 }
 
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.rating p {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.yellow {
+  color: #ffc107;
+}
+
+.grey {
+  color: #b1b1b1;
+}
+
 .shower {
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .flex-title {
@@ -19793,4 +19817,12 @@ label {
 
 .index {
   margin-top: 50px;
+  height: 80vh;
+}
+
+.mail-comm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 }

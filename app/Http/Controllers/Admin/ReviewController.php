@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use App\Developer;
+use App\User;
+use App\Language;
 use App\Review;
 
 class ReviewController extends Controller
@@ -15,7 +22,13 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $find = Auth::id();
+
+        $call = "SELECT reviews.name, reviews.content, reviews.rate, reviews.created_at FROM reviews LEFT JOIN developers ON developer_id = developers.id LEFT JOIN users ON users.id = developers.user_id WHERE users.id = {$find}";
+        
+        $reviews = DB::select($call);
+        
+        return view('admin.reviews.index',  compact('reviews'));
     }
 
     /**

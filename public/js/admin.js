@@ -49349,6 +49349,7 @@ var app = new Vue({
 
     axios.get("/api/filter/".concat(this.selectedLanguage, "/").concat(this.selectedRate, "/").concat(this.selectedNumber)).then(function (res) {
       _this2.developers = res.data;
+      console.log(_this2.developers);
     })["catch"](function (error) {
       console.log(error);
     });

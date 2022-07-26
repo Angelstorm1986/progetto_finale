@@ -52,7 +52,7 @@
         </div>
     </form>
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-xl-4" v-for="(developer, index) in developers">
+        <div class="col-sm-6 col-md-4 col-xl-3" v-for="(developer, index) in developers">
             {{-- <img class="rounded-pill" src=" {{ asset('storage/' . developer.photo) }} " alt="W"> --}}
             {{-- <img src=" {{ asset('storage/' . developer.curriculum) }} " alt="Curriculum Vitae"> --}}
             <div class="card-container m-3">
@@ -61,19 +61,21 @@
                         <img class="round rounded-circle" :src="developer.photo !== null ? '/storage/' + developer.photo : '/img/project-user.png'" :alt="developer.name + ' ' + developer.surname">
                     </a>
                 </div>
-                <a class="text-decoration-none text-reset" href="">
-                    <h3>@{{ developer.name + ' ' + developer.surname }}</h3>
+                <a class="text-decoration-none text-reset" :href="'http://127.0.0.1:8000/admin/developers/' + developer.id">
+                    <h3>@{{ developer.name}} <br> @{{developer.surname }}</h3>
                 </a>
-                <p>@{{ developer.media }}</p>
-                <p>@{{ developer.numRev }}</p>              
-                <div class="buttons my-2">
-                    <button class="primary">
-                        Message
-                    </button>
-                    <button class="primary ghost">
-                        Reviews
-                    </button>
-                </div>
+                <div class="rating">
+                    <div>
+                        <p>
+                            <i v-for="n in Math.round(developer.media)" class="fa-solid fa-certificate yellow"></i>
+                            <i v-for="n in 5 - Math.round(developer.media)" class="fa-solid fa-certificate grey"></i>
+                        </p>
+                    </div>
+                    <div>
+                        <p v-if="developer.numRev != 0 && developer.numRev != 1">Recensioni: @{{ developer.numRev / 2 }}</p> 
+                        <p v-else>Recensioni: @{{ developer.numRev}}</p> 
+                    </div>
+                </div>             
             </div>
         </div>
     </div>

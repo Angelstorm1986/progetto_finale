@@ -1,19 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-@if($messages->isNotEmpty())
+@if(!empty($messages))
     <div class="container">
         @foreach($messages as $comment)
         <hr>
-        <div class="comment-show skills" v-for="(comment, index) in comments">
+        <div class="comment-show skills">
             <div class="mail-comm">
                 <p class="nomi h-4">{{$comment->name}}</p>
-                <p class="mail">{{$comment->name}}</p>
+                <p class="mail">{{$comment->mail}}</p>
             </div>
             <p class="commento ">{{$comment->content}}</p>
         </div>
         @endforeach
-        <h1>porcoddio</h1>
     </div>
 @else
     <div class="container">
@@ -28,7 +27,6 @@
     </div>
 @endif
 <?php
-    
 ?>
 
 @endsection

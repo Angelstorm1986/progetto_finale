@@ -35,9 +35,6 @@
                             </a>
                         </li>
                     @endif
-                        {{-- <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.reviews.index' ? 'active' : ''}}" href="{{ route('admin.reviews.index') }}" >Reviews</a>
-                        </li> --}}
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -67,6 +64,8 @@
                                     ''
                                     )}}">Dashboard</a>
                                     <a class="dropdown-item {{Route::currentRouteName() == 'admin.messages.index' ? 'active' : ''}}" href="{{ route('admin.messages.index') }}" >Messages</a>
+
+                                    <a class="dropdown-item {{Route::currentRouteName() == 'admin.reviews.index' ? 'active' : ''}}" href="{{ route('admin.reviews.index') }}" >Reviews</a>
                             @else
                                 <a class="dropdown-item" href="{{route('admin.developers.create')}}">Crea developer</a>
                             @endif

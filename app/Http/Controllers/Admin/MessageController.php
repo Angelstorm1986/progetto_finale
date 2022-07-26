@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use App\Developer;
 use App\User;
 use App\Language;
@@ -21,11 +22,13 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $developer = Developer::where('user_id', '=', Auth::id())->get('id');
-        $messages = Message::where('developer_id', '=', 18)->get();
-        dd($messages);
+        $find = Auth::id();
+
+        $call = "SELECT messages.name, messages.content, messages.mail, messages.created_at FROM messages LEFT JOIN developers ON developer_id = developers.id LEFT JOIN users ON users.id = developers.user_id WHERE users.id = {$find}";
         
-        return view('admin.messages.index',  compact('developer', 'messages'));
+        $messages = DB::select($call);
+        
+        return view('admin.messages.index',  compact('messages'));
     }
 
     /**
