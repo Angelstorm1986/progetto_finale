@@ -62,12 +62,12 @@ class DeveloperController extends Controller
         $newDeveloper->user_id = Auth::id();
 
         if( isset($data['photo']) ) {
-            $path_photo = Storage::put("uploads", $data['photo']);
+            $path_photo = Storage::put("public/uploads", $data['photo']);
             $newDeveloper->photo = $path_photo;
         }
 
         if( isset($data['curriculum']) ) {
-            $path_curriculum = Storage::put("uploads", $data['curriculum']);
+            $path_curriculum = Storage::put("public/uploads", $data['curriculum']);
             $newDeveloper->curriculum = $path_curriculum;
         }
 

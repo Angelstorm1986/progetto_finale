@@ -149,7 +149,12 @@
                 <hr>
                 <div class="comment-show skills" v-for="(review, index) in reviews">
                     <p class="nomi h-4">@{{review.name}}</p>
-                    <p>@{{review.rate}}</p>
+                    <div>
+                        <p>
+                            <i v-for="n in Math.round(review.rate)" class="fa-solid fa-certificate yellow"></i>
+                            <i v-for="n in 5 - Math.round(review.rate)" class="fa-solid fa-certificate grey"></i>
+                        </p>
+                    </div>
                     <p class="commento ">@{{review.content}}</p>
                 </div>
                 <hr>

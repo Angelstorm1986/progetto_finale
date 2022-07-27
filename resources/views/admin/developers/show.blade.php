@@ -84,8 +84,7 @@
                 
                 <div class="d-flex justify-content-center pb-5">
                     <button class="btn-warning" v-if="content.length > 10 && mail.includes('@', '.') && nome.includes(' ') && nome.substr(-1) != ' ' && nome.substr(0, 1) != ' '"><strong>Save</strong></button>
-                </div>
-                
+                </div>                
             </form>
         </div>
         <div v-if="comments.length > 0">
@@ -150,7 +149,12 @@
             <hr>
             <div class="comment-show skills" v-for="(review, index) in reviews">
                 <p class="nomi h-4">@{{review.name}}</p>
-                <p>@{{review.rate}}</p>
+                <div>
+                    <p>
+                        <i v-for="n in Math.round(review.rate)" class="fa-solid fa-certificate yellow"></i>
+                        <i v-for="n in 5 - Math.round(review.rate)" class="fa-solid fa-certificate grey"></i>
+                    </p>
+                </div>
                 <p class="commento ">@{{review.content}}</p>
             </div>
             <hr>
