@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
+use App\Developer;
+use App\User;
+use App\Language;
+use App\Message;
 
 class LoginController extends Controller
 {
@@ -27,6 +32,18 @@ class LoginController extends Controller
     public function logout(Request $request){
         $this->performLogout($request);
         return redirect()->route('guest.developers.index');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+    if ($user == Auth::user()) {
+        $users = User::all();
+        $developers = Developer::all();
+        $languages = Language::all();
+        return redirect()->route('admin.developers.index', compact('developers', 'users', 'languages'));
+    }
+
+    return redirect('/home');
     }
 
     /**

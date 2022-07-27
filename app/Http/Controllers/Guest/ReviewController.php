@@ -43,8 +43,8 @@ class ReviewController extends Controller
         $newReview->content = $data['content'];
         $newReview->developer_id = $data['developer_id'];
 
-        return $newReview->save();
-
+        $newReview->save();
+        return redirect()->route('guest.developers.show', $data['developer_id']);
         //Mail::to('matteo.nichelini@gmail.com')->send(new SendNewMail($newComment->post));
     }
 

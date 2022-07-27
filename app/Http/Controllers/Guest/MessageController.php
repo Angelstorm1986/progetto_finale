@@ -47,10 +47,10 @@ class MessageController extends Controller
         $newMessage->mail = $data['mail'];
         $newMessage->developer_id = $data['developer_id'];
 
-         return $newMessage->save();
+        $newMessage->save();
+        return redirect()->route('guest.developers.show', $data['developer_id']);
         } else{
             $comtrol = true;
-            return compact('comtrol');
         }
 
         //Mail::to('matteo.nichelini@gmail.com')->send(new SendNewMail($newComment->post));

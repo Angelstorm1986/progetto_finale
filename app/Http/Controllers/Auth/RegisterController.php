@@ -8,7 +8,10 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 use App\Developer;
+use App\Language;
+use App\Message;
 
 class RegisterController extends Controller
 {
@@ -30,7 +33,6 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -78,6 +80,6 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'slug' => $data['name']
         ]);
-        return redirect('admin.developers.index', compact('developers'));
+        return redirect('admin.home', compact('developers'));
     }
 }

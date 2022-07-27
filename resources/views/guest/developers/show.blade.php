@@ -8,7 +8,11 @@
     </select>
     <div class="container">
         <div class="card-container shower">
+                @if($developer->photo)
                 <img class="round" src=" {{ asset('storage/' . $developer->photo) }} " alt="{{ $user->name }} {{ $user->surname }}">
+                @else
+                <img class="round" src=" {{ asset('img/1024x1024bb.png') }} " alt="{{ $user->name }} {{ $user->surname }}">
+                @endif
                 <h3>{{ $user->name }} <br> {{ $user->surname }}</h3>     
             <h6>{{ $user->address }}</h6>
             @if($developer->phone_number)

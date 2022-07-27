@@ -6,11 +6,15 @@
         <div class="container">
             @if(Auth::user())
             <a class="navbar-brand" href="{{ route('admin.home') }}">
-                BDevelopers
+                <div>
+                    <p>[BD]</p>
+                </div>
             </a>
             @else
             <a class="navbar-brand" href="{{ route('guest.home') }}">
-                BDevelopers
+                <div>
+                    <p>[BD]</p>
+                </div>
             </a>
             @endif
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -9273,7 +9273,27 @@ header {
   background-color: #353535;
 }
 header .navbar-brand {
-  color: #F5F5F5;
+  color: #202020;
+  text-align: center;
+  font-weight: bolder;
+}
+header .navbar-brand div {
+  background-color: #ffc107;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+header .navbar-brand div p {
+  font-size: 20px;
+  position: absolute;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 header .nav-link {
   color: #FFF;

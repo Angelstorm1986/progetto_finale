@@ -8,7 +8,11 @@
 </select>
 <div class="container">
     <div class="card-container shower">
-            <img class="round" src=" {{ asset('storage/' . $developer->photo) }} " alt="{{ $user->name }} {{ $user->surname }}">
+        @if($developer->photo)
+        <img class="round" src=" {{ asset('storage/' . $developer->photo) }} " alt="{{ $user->name }} {{ $user->surname }}">
+        @else
+        <img class="round" src=" {{ asset('img/1024x1024bb.png') }} " alt="{{ $user->name }} {{ $user->surname }}">
+        @endif
             <h3>{{ $user->name }} <br> {{ $user->surname }}</h3>     
         <h6>{{ $user->address }}</h6>
         @if($developer->phone_number)
@@ -56,9 +60,6 @@
                 @csrf
                 <input type="text"  class="form-control d-none" id="developer_id" value="{{$developer->id}}" name="developer_id"> 
                 <div class="mb-3 row justify-content-center">
-                    <?php
-                       
-                    ?>
                     <div class="col-sm-8">
                         <label for="name" class="col-sm-8 col-form-label">Name:</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"

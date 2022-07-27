@@ -19549,7 +19549,27 @@ header {
   background-color: #353535;
 }
 header .navbar-brand {
-  color: #F5F5F5;
+  color: #202020;
+  text-align: center;
+  font-weight: bolder;
+}
+header .navbar-brand div {
+  background-color: #ffc107;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+header .navbar-brand div p {
+  font-size: 20px;
+  position: absolute;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 header .nav-link {
   color: #FFF;
@@ -19612,7 +19632,6 @@ p {
   box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
   padding-top: 30px;
   position: relative;
-  width: 100%;
   text-align: center;
 }
 .card-container .img-container {
@@ -19671,12 +19690,40 @@ button.primary.ghost {
 
 .cards {
   width: 100%;
+  gap: 20px;
+}
+.cards .square::hover .comparsa {
+  top: 0;
 }
 .cards .square {
+  height: 250px;
   display: inline-block;
-  width: calc((100% - 30px) / 3);
-  height: 20vw;
+  position: relative;
+  overflow: hidden;
   padding: 10px;
+  width: 100%;
+  background-color: #353535;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+.cards .square .comparsa {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 300px;
+  transition: 1s;
+  padding: 20px 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.cards .square .d-md-none {
+  margin-top: 30px;
+}
+.cards .square i {
+  font-size: 130px;
 }
 .cards .square img {
   width: 100%;
@@ -19688,12 +19735,45 @@ button.primary.ghost {
   margin: 0 10px;
 }
 
+.d-md-flex {
+  gap: 20px;
+}
+.d-md-flex .lead {
+  width: 100%;
+  text-align: center;
+}
+
 .jumbotron {
   width: 100%;
   padding: 0;
+  position: relative;
 }
 .jumbotron img {
   width: 100%;
+}
+.jumbotron .cover {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.jumbotron .cover .positioner {
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+.jumbotron .cover .register {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 40px;
+  margin-right: 30px;
+}
+.jumbotron .cover .register a {
+  color: #ffc107;
 }
 
 .rating {
@@ -19717,12 +19797,29 @@ button.primary.ghost {
   color: #b1b1b1;
 }
 
+.form-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.text-truncate {
+  margin: 0 5px;
+}
+
 .shower {
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 30px;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+.shower img {
+  width: 30%;
+  border-radius: 50%;
 }
 
 .flex-title {
@@ -19789,6 +19886,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .face {

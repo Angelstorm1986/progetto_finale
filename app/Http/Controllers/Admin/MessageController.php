@@ -57,7 +57,8 @@ class MessageController extends Controller
         $newMessage->mail = $data['mail'];
         $newMessage->developer_id = $data['developer_id'];
 
-         return $newMessage->save();
+        $newMessage->save();
+         return redirect()->route('admin.developers.show', $data['developer_id']);
         } else{
             $comtrol = true;
             return compact('comtrol');
