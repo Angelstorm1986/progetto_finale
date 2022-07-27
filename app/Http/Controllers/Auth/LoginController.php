@@ -42,8 +42,10 @@ class LoginController extends Controller
         $languages = Language::all();
         return redirect()->route('admin.developers.index', compact('developers', 'users', 'languages'));
     }
-
-    return redirect('/home');
+    $users = User::all();
+    $developers = Developer::all();
+    $languages = Language::all();
+    return redirect()->route('admin.developers.index', compact('developers', 'users', 'languages'));
     }
 
     /**
@@ -51,7 +53,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+   
 
     /**
      * Create a new controller instance.
