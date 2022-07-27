@@ -33,6 +33,8 @@
      previewCurriculum() {
         var oFReader = new FileReader();
         oFReader.readAsDataURL(document.getElementById("curriculum").files[0]);
+        this.existcurr = true;
+        console.log(this.existcurr)
 
         oFReader.onload = function (oFREvent) {
             document.getElementById("uploadPreviewCv").src = oFREvent.target.result;
@@ -64,6 +66,8 @@
         comments: [],
         createComment: false,
         createRev: false,
+        existcurr : false,
+        existphot: false,
     }, 
     methods:{
         filtra: function(){
@@ -94,6 +98,12 @@
                 this.createRev = false
             }
         },
+        renderer: function(){
+            this.existcurr = true
+        },
+        renderertwo: function(){
+            this.existphot = true
+        }
     },
     updated(){
         if(this.nome == ''){

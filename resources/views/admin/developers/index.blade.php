@@ -40,6 +40,11 @@
             <p class="lead d-md-none">Recensisci</p>
         </div>
     </div>
+    <div class="d-none d-md-flex justify-content-around">
+        <p class="lead">Cerca</p>
+        <p class="lead">Contatta</p>
+        <p class="lead">Recensisci</p>
+    </div>
     <form action="" method="post">
         <div class="form-group flex-column flex-xl-row">
             <div>

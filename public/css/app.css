@@ -19899,6 +19899,10 @@ label {
   font-size: 90px;
 }
 
+.opacity {
+  opacity: 0;
+}
+
 .card {
   background-color: transparent !important;
 }
