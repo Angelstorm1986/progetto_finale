@@ -46,6 +46,7 @@
                     </ul>
                     @endif
                 </div> 
+                <h6>Curriculum:</h6>
             </div>
         </div>
 

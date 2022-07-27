@@ -49263,6 +49263,8 @@ window.boolpress = {
   previewCurriculum: function previewCurriculum() {
     var oFReader = new FileReader();
     oFReader.readAsDataURL(document.getElementById("curriculum").files[0]);
+    this.existcurr = true;
+    console.log(this.existcurr);
 
     oFReader.onload = function (oFREvent) {
       document.getElementById("uploadPreviewCv").src = oFREvent.target.result;
@@ -49291,7 +49293,9 @@ var app = new Vue({
     reviews: [],
     comments: [],
     createComment: false,
-    createRev: false
+    createRev: false,
+    existcurr: false,
+    existphot: false
   },
   methods: {
     filtra: function filtra() {
@@ -49322,6 +49326,12 @@ var app = new Vue({
       } else {
         this.createRev = false;
       }
+    },
+    renderer: function renderer() {
+      this.existcurr = true;
+    },
+    renderertwo: function renderertwo() {
+      this.existphot = true;
     }
   },
   updated: function updated() {
