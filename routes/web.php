@@ -24,7 +24,7 @@ Route::middleware('auth')
    ->name('admin.')
    ->prefix('admin')
    ->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@success')->name('home');
     Route::resource('/developers', 'DeveloperController');
     Route::resource('/messages', 'MessageController');
     Route::resource('/reviews', 'ReviewController');
